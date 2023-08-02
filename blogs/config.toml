@@ -1,0 +1,3 @@
+baseURL = 'https://FlowHero.github.io/blogs/public/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'

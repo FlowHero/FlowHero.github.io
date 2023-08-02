@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://FlowHero.github.io/blogs/public/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://FlowHero.github.io/blogs/public/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://FlowHero.github.io/blogs/public/blog/2023-07-16-blog-post-jwt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://FlowHero.github.io/blogs/public/blog/2023-07-16-blog-post-jwt/</guid>
+      <description>JWT References :
+https://github.com/ticarpi/jwt_tool/wiki/Using-jwt_tool
+JWKS common locations Another common alternative is exposing a key (or set of keys) in a JWKS (JSON Web Key Store) file. Some common locations for this would be:
+/.well-known/jwks.json /openid/connect/jwks.json /jwks.json /api/keys /api/v1/keys There are two standard header claims that can direct the service to the Public Key for verification:
+jku - a claim pointing towards the JWKS URL x5u - a claim pointing towards the X509 certificate location (could be in a JWKS file) Stealing JWTs There&amp;rsquo;s no need to hack JWTs if you can steal and replay them!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://FlowHero.github.io/blogs/public/blog/2023-07-25-blog-post-graphql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://FlowHero.github.io/blogs/public/blog/2023-07-25-blog-post-graphql/</guid>
+      <description>DVGA Use the following script to install &amp;amp; run DVGA :
+git clone https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application.git &amp;amp;&amp;amp; cd Damn-Vulnerable-GraphQL-Application docker build -t dvga . docker run -d -t -p 5013:5013 -e WEB_HOST=0.0.0.0 --name dvga dvga Tools : nmap graphql-introspection nmap --script=graphql-introspection -sV 127.0.0.1 -p 5013 Altair InQL SQLmap graphw00f GraphQL running ? What Endpoint ? What GraphQL Engine ? Attack Surface ? python3 main.py -d -f -t http://127.0.0.1:5013 ffuf -u http://localhost/FUZZ -w /home/hero/tools/graphql-tools/endpoints.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://FlowHero.github.io/blogs/public/blog/2023-08-01-blog-post-api-checklist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://FlowHero.github.io/blogs/public/blog/2023-08-01-blog-post-api-checklist/</guid>
+      <description>1 - WAF Detection Check Headers, CDNs and wafw00f Evasion/Bypass (WAF &amp;amp; Rate Limiting ) Burner Accounts Null Bytes, at the End or Middle Case Switching Encoding, Double Encoding, Combine theses techniques Automation w/Burp Intruder &amp;amp; Wfuzz &amp;amp; Awesome-WAF Rate Limits testing IP ? Auth Token ? CDNs Header ? User-Agent ? All of them ? Request / min reducing Path Bypass Origin &amp;amp; User-Agent Headers Spoofing IP Rotate Recon </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://FlowHero.github.io/blogs/public/blog/2023-08-01-blog-post-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://FlowHero.github.io/blogs/public/blog/2023-08-01-blog-post-api/</guid>
+      <description>title: Great Ressource https://github.com/arainho/awesome-api-security RECON PASSIVE Google dorking First try too google the org&amp;rsquo;s API it could be public and advertized ![[Capture d’écran 2023-07-06 014532.png]]
+intitle:&amp;#34;api&amp;#34; site:&amp;#34;8x8.com&amp;#34; intitle:&amp;#34;json&amp;#34; site:&amp;#34;8x8.com&amp;#34; intitle:&amp;#34;index of&amp;#34; intext:&amp;#34;api&amp;#34; inurl:&amp;#34;/api/*&amp;#34; intext:&amp;#34;index of&amp;#34; intext:api filetype:env intitle:&amp;#34;index of&amp;#34; api_key OR &amp;#34;api key&amp;#34; OR apiKey -pool intext:APIKey ext:js | xml | yaml | txt | conf | py intitle:&amp;#34;index of&amp;#34; &amp;#34;api&amp;#34; ext:log Git dorking extention:.json 8x8 &amp;#34;Authorization: Bearer&amp;#34; Waybackmachine [[Shodan]] Dorking ACTIVE amass enum -active -d target-name.</description>
+    </item>
+    
+  </channel>
+</rss>

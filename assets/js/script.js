@@ -1,7 +1,51 @@
 'use strict';
 
 
-
+var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "radar",
+  "theme": "light",
+  "color": "#333333",
+  "fontFamily": "sans-serif",
+  "fontSize": "14",
+  "colors": ["#67b7dc"],
+  "dataProvider": [ {
+    "country": "Web Application Security",
+    "levels": 4
+  }, {
+    "country": "Digital Forensics Incident Response",
+    "levels": 3
+  },
+     
+               {
+    "country": "Reconaissance",
+    "levels": 3.5
+  }, {
+    "country": "Azure",
+    "levels": 3.5
+  }, {
+    "country": "AWS",
+    "levels": 3.0
+  }, {
+    "country": "Network Security",
+    "levels": 3
+  }],
+  "valueAxes": [ {
+    "axisTitleOffset": 0,
+    "minimum": 0,
+    "maximum": 5,
+    "axisAlpha": 0.15,
+    "labelsEnabled":false
+  } ],
+  "startDuration": 1,
+  "graphs": [ {
+    "bullet": "round",
+    "valueField": "levels"
+  } ],
+  "categoryField": "country",
+  "export": {
+    "enabled": true
+  }
+} );
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 

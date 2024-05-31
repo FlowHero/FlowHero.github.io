@@ -4,7 +4,7 @@
 var chart = AmCharts.makeChart( "chartdiv", {
   "type": "radar",
   "theme": "light",
-  "color": "#333333",
+  "color": "#D6D6D6",
   "fontFamily": "sans-serif",
   "fontSize": "14",
   "colors": ["#67b7dc"],

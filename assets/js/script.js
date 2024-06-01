@@ -20,11 +20,11 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "country": "Reconaissance",
     "levels": 3.5
   }, {
-    "country": "Active Directory Exploitation",
-    "levels": 2
-  }, {
     "country": "Cloud Security (Azure & AWS)",
-    "levels": 3.0
+    "levels": 3
+  }, {
+    "country": "Active Directory Exploitation",
+    "levels": 2.0
   }, {
     "country": "Network Security",
     "levels": 3

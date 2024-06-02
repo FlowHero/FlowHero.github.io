@@ -27,7 +27,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "levels": 2.0
   }, {
     "country": "Network Security",
-    "levels": 3
+    "levels": 2.5
   }],
   "valueAxes": [ {
     "axisTitleOffset": 0,

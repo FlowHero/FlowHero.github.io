@@ -24,7 +24,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "levels": 3
   }, {
     "country": "Active Directory Exploitation",
-    "levels": 2.0
+    "levels": 1.5
   }, {
     "country": "Network Security",
     "levels": 2.5

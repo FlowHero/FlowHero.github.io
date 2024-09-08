@@ -3,7 +3,7 @@
 
 var chart = AmCharts.makeChart( "chartdiv", {
   "type": "radar",
-  "theme": "light",
+  "theme": "dark",
   "color": "#D6D6D6",
   "fontFamily": "sans-serif",
   "fontSize": "14",
@@ -12,22 +12,21 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "country": "Web Application Security",
     "levels": 4
   }, {
-    "country": "Digital Forensics Incident Response",
+    "country": "Cloud Security (AWS & Azure)",
     "levels": 3
   },
-     
-               {
-    "country": "Reconaissance",
-    "levels": 3.5
-  }, {
-    "country": "Cloud Security (Azure & AWS)",
-    "levels": 3
-  }, {
-    "country": "DevOps",
-    "levels": 3
-  }, {
+     {
     "country": "Network Security",
+    "levels": 3
+  }, {
+    "country": "Digital Forensics Incident Response",
     "levels": 2.5
+  }, {
+    "country": "DevSecOps",
+    "levels": 3
+  }, {
+    "country": "API Security",
+    "levels": 3
   }],
   "valueAxes": [ {
     "axisTitleOffset": 0,

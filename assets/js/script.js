@@ -13,7 +13,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "levels": 4
   }, {
     "country": "Cloud Security (AWS & Azure)",
-    "levels": 3
+    "levels": 3.5
   },
      {
     "country": "Network Security",
@@ -23,10 +23,10 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "levels": 2.5
   }, {
     "country": "DevSecOps",
-    "levels": 3
+    "levels": 3.5
   }, {
     "country": "API Security",
-    "levels": 3
+    "levels": 3.5
   }],
   "valueAxes": [ {
     "axisTitleOffset": 0,

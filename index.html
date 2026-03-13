@@ -1,763 +1,642 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abad's Profile</title>
+  <meta name="description" content="ABAD Ayoub (Fl0wHero) — Cybersecurity Engineer specializing in SecOps, Penetration Testing, and DevSecOps. Based in Morocco.">
+  <title>ABAD Ayoub · Cybersecurity Engineer</title>
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/dbz.jpg" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
+  <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    .avatar-box {
-      display: inline-block;
-      background-color: #f0f0f0; /* Set the desired background color */
-      border-radius: 10%; /* This will create a rounded background */
-      padding: 5px; /* Optional: Add padding for spacing */
-    }
-
-    .avatar-box img {
-      border-radius: 10%; /* Make the image itself appear rounded */
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-        
-        <!--<figure class="avatar-box">
-          <!-- <img src="./assets/images/avatar.jpeg" id="rcorners" alt="FlowHero" width="80"> -->
-          <!--<img src="./assets/images/profile-pic(35).png" id="rcorners" alt="FlowHero" width="80">
-        </figure>-->
-
-        <div class="info-content">
-          <h1 class="name" title="neeraj">ABAD Ayoub</h1>
-
-          <p class="title">Cybersecurity Engineer</p>
-		  
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:ayoub.02.abad@gmail.com" class="contact-link">ayoub.02.abad@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Alias</p>
-
-              <a href="https://twitter.com/Fl0wHero" class="contact-link">Fl0wHero</a>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/abad-ayoub-957079242/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-		  
-          <li class="social-item">
-            <a href="https://github.com/FlowHero" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://twitter.com/Fl0wHero" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <!-- <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Tools</button>
-          </li> -->
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blogs</button>
-          </li>
-
-        </ul>
-
+  <!-- ======= NAVBAR ======= -->
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">[</span>Fl0wHero<span class="logo-bracket">]</span><span class="logo-cursor">_</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about"          data-i18n="nav.about">About</a>
+        <a href="#skills"         data-i18n="nav.skills">Skills</a>
+        <a href="#experience"     data-i18n="nav.experience">Experience</a>
+        <a href="#education"      data-i18n="nav.education">Education</a>
+        <a href="#projects"       data-i18n="nav.projects">Projects</a>
+        <a href="#certifications" data-i18n="nav.certs">Certs</a>
+        <a href="#contact"        data-i18n="nav.contact">Contact</a>
       </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">Who Am I</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-				Enthusiastic cybersecurity professional with hands-on experience in penetration testing, application security, and cloud security ..
-                </p>
-		  <p>
-				I do everything related to Cybersecurity! Check out my blogs where i sometimes share some notes of what i'm learning.
-          </p>
-		  
-        </section>
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Skills Matrix</h3>
-<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-<script src="https://www.amcharts.com/lib/3/radar.js"></script>
-<script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>
-<div id="chartdiv"></div>							
-
-          <!-- <ul class="testimonials-list has-scrollbar">
-
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/ava-3.png" alt="Tool Development" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Web Security</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-
-                </div>
-
-              </div>
-            </li>
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/api2.png" alt="APII" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>API Security</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-
-                </div>
-
-              </div>
-            </li>
-
-
-           </ul>  -->
-          
-
-        </section>
-<!--         
-        <section class="testimonials">
-
-          <ul class="testimonials-list has-scrollbar">
-
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/cloudy.png" alt="CTI" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Cloud Security</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                   <p>
-                  </p>
-                </div>
-
-              </div>
-            </li>
-		  
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/927906.png" alt="CTI" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Reconnaissance</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                   <p>
-                  </p>
-                </div>
-
-              </div>
-            </li> -->
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/profile-pic(21).png" alt="Mal" width="80" data-modal-img>
-              </figure>
-
-              <!--<img src="./assets/images/icon-quote.svg" alt="quote icon"> -->
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>xx</h4>
-
-             <!--<time datetime="2021-06-14">14 June, 2022</time> -->
-
-              <div data-modal-text>
-                <p>
-					xx.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
+      <div class="nav-right">
+        <div class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" data-lang="fr">FR</button>
         </div>
-
-
-        <!--
-          
-        -->
-		<!--
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-				-->
-
-      </article>
-
-
-      <!--
-        - #PORTFOLIO #TOOLS
-      -->
-
-      <article class="tools" data-page="tools">
-
-        <header>
-          <h2 class="h2 article-title">xx</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="project-list">
-
-            <li class="project-item  active">
-              <a href="" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/t-1.jpg" alt="xx" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">xx</h3>
-
-                <p class="project-category">xx</p>
-
-              </a>
-            </li>
-			
-			<li class="project-item  active">
-              <a href="https://github.com/knight0x07/BumbleCrypt" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/t-3.jpg" alt="xx" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">xx</h3>
-
-                <p class="project-category">xx</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active">
-              <a href="" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/t-2.jpg" alt="xx" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">xx</h3>
-
-                <p class="project-category">xx</p>
-
-              </a>
-            </li>
-
-
-            <li class="project-item  active">
-              <a href="" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/t-4.jpg" alt="Lnk2Vbs" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">xx</h3>
-
-                <p class="project-category"></p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active">
-              <a href=""  target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/t-5.jpg" alt="xx" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">xx</h3>
-
-                <p class="project-category">xx</p>
-
-              </a>
-            </li>
-			
-			
-			<li class="project-item  active">
-              <a href="https://github.com/knight0x07/PoC-Malware-TTPs"  target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/t-6.jpg" alt="xx" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">xx</h3>
-
-                <p class="project-category">xx</p>
-
-              </a>
-            </li>
-			
-			
-			
-			
-		<!--
-        Add tools above
-		-->
-			
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blogs" data-page="blogs">
-
-        <header>
-          <h2 class="h2 article-title">Blogs</h2>
-        </header>
-
-        <section class="blog-posts">
-		
-		    <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>API</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>DevSecOps</button>
-
-          </ul>
-		  
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-			  <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>API</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Web Technologies</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Forensics</button>
-              </li>
-
-            </ul>
-
-          </div>
-		  		 
-
-          <ul class="blog-posts-list">
-
-		  	<li class="project-item  active" data-filter-item data-category="api">
-              <a href="https://flowhero.github.io/blogsite/docs/graphql-exploitation/"    target="_blank">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/b-10.webp" alt="graphql" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">API Security</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2023-07-07">Jul 07, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">GraphQL Exploitation</h3>
-
-                  <p class="blog-text">
-                    Get started with GraphQL testing from Recon to Exploitation”
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-		  
-
-			 <li class="project-item  active" data-filter-item data-category="web">
-              <a href="https://flowhero.github.io/blogsite/docs/bypassing-wafs/"    target="_blank">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/wafbypassblog.png" alt="waf" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Web</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-10-21">Aug 04, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">WAFs Bypass/Evasion</h3>
-
-                  <p class="blog-text">
-                    Discover the best practices used in the wild by Hackers to Bypass/Evase Web Application Firewalls.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-        <li class="project-item  active" data-filter-item data-category="api">
-              <a href="https://flowhero.github.io/blogsite/docs/jwts-attacks/"    target="_blank">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/jwts.png" alt="jwt" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">API</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-10-21">Aug 13, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">JWTs Attacks</h3>
-
-                  <p class="blog-text">
-                    Cheat-Sheet For Attacking JWTs.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-            <li class="project-item  active" data-filter-item data-category="api">
-              <a href="https://flowhero.github.io/blogsite/docs/fuzzing-apis/"    target="_blank">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/apifuzzing.png" width="150" height="150" alt="apifuzzingLogox" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">API</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2023-02-14">Aug 22, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">API Fuzzing</h3>
-
-                  <p class="blog-text">
-                    Deep Diving into how API Fuzzing w/ Postman, Burp & Wfuzz work.
-                  </p>
-
-                </div>
-
-              </a>
-              <li class="project-item  active" data-filter-item data-category="devsecops">
-                <a href="https://flowhero.github.io/newblog/posts/cks/"    target="_blank">
-  
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/kubesec.png" alt="kubernetes" loading="lazy">
-                  </figure>
-  
-                  <div class="blog-content">
-  
-                    <div class="blog-meta">
-                      <p class="blog-category">DevSecOps</p>
-  
-                      <span class="dot"></span>
-  
-                      <time datetime="2023-07-07">Aug 17, 2024</time>
-                    </div>
-  
-                    <h3 class="h3 blog-item-title">Kubernetes Security - Part 1/6 </h3>
-  
-                    <p class="blog-text">
-                      Kubernetes cluster setup and configuration. In this blog, we’ll only drill into the security-specific aspects and not the standard responsibilities of a Kubernetes administrator.                    </p>
-  
-                  </div>
-  
-                </a>
-              </li>
-
-			
-
-
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about"          data-i18n="nav.about">About</a>
+      <a href="#skills"         data-i18n="nav.skills">Skills</a>
+      <a href="#experience"     data-i18n="nav.experience">Experience</a>
+      <a href="#education"      data-i18n="nav.education">Education</a>
+      <a href="#projects"       data-i18n="nav.projects">Projects</a>
+      <a href="#certifications" data-i18n="nav.certs">Certifications</a>
+      <a href="#contact"        data-i18n="nav.contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- ======= HERO ======= -->
+  <section id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+
+      <div class="hero-avatar">
+        <img src="./assets/images/profile_pic.png" alt="ABAD Ayoub">
+      </div>
+
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero.badge">Open to new opportunities</span>
+      </div>
+
+      <h1 class="hero-name">ABAD <span class="accent">Ayoub</span></h1>
+
+      <div class="hero-role">
+        <span class="role-prefix">$ whoami &gt;&gt;&nbsp;</span>
+        <span id="typing-text"></span><span class="typing-cursor">|</span>
+      </div>
+
+      <p class="hero-bio">
+        <span data-i18n="hero.bio">Cybersecurity Engineer specializing in SecOps, Penetration Testing &amp; DevSecOps.</span><br>
+        <span data-i18n="hero.tagline">Building defenses. Breaking assumptions.</span>
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary"   data-i18n="hero.cta1">Get in Touch</a>
+        <a href="#projects" class="btn-secondary" data-i18n="hero.cta2">View Projects</a>
+        <div class="hero-exp-badge">
+          <span class="exp-value accent-green">2+</span>
+          <span class="exp-label" data-i18n="hero.stat3">Years Exp.</span>
+        </div>
+      </div>
     </div>
 
-  </main>
+    <div class="hero-scroll-hint">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
 
+  <!-- ======= ABOUT ======= -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="about.title">About <span class="accent">Me</span></h2>
+      <div class="about-grid">
 
-  <!--
-    - custom js link
-  -->
+        <div class="about-text reveal">
+          <p data-i18n="about.p1">
+            I'm a Cybersecurity Engineer based in Morocco, currently working as a
+            <strong class="accent">SecOps Engineer at Tessi</strong>, where I monitor and
+            investigate security alerts across Network, SaaS, Email, and Endpoint vectors
+            using SIEM, NDR, EDR, WAF, and IPS/IDS solutions.
+          </p>
+          <p data-i18n="about.p2">
+            I hold a State Engineer Diploma in Computer Security &amp; Cybersecurity from
+            <strong class="accent">ENSA Oujda</strong> (2019–2024). My background spans
+            offensive security (web pentesting, bug bounty), defensive security (SOC, incident
+            response), and cloud security (DevSecOps, Kubernetes, AWS/Azure).
+          </p>
+          <p data-i18n="about.p3">
+            I'm passionate about the intersection of automation and security — from building
+            secure CI/CD pipelines to developing custom Python tooling for SOC operations and
+            threat intelligence.
+          </p>
+          <div class="about-info">
+            <div class="info-item">
+              <span class="info-label" data-i18n="about.loc.label">Location</span>
+              <span class="info-value" data-i18n="about.loc.value">Oujda, Morocco</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label" data-i18n="about.email.label">Email</span>
+              <a href="mailto:ayoub.02.abad@gmail.com" class="info-value info-link">ayoub.02.abad@gmail.com</a>
+            </div>
+            <div class="info-item">
+              <span class="info-label">LinkedIn</span>
+              <a href="https://linkedin.com/in/abaa-youb" target="_blank" rel="noopener" class="info-value info-link">linkedin.com/in/abaa-youb</a>
+            </div>
+            <div class="info-item">
+              <span class="info-label" data-i18n="about.lang.label">Languages</span>
+              <span class="info-value" data-i18n="about.lang.value">Arabic (Native) · English (Advanced) · French (Advanced)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-cards">
+          <div class="about-card reveal">
+            <div class="about-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+            </div>
+            <h3 data-i18n="card.off.title">Offensive Security</h3>
+            <p data-i18n="card.off.desc">Web App Pentesting, VAPT, Bug Bounty, CTF competitions</p>
+          </div>
+          <div class="about-card reveal">
+            <div class="about-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3 data-i18n="card.def.title">Defensive / SOC</h3>
+            <p data-i18n="card.def.desc">SIEM operations, Incident Response, Threat Hunting, CVE management</p>
+          </div>
+          <div class="about-card reveal">
+            <div class="about-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <h3 data-i18n="card.cloud.title">Cloud &amp; DevSecOps</h3>
+            <p data-i18n="card.cloud.desc">AWS, Azure, Kubernetes security, CI/CD pipelines, IaC scanning</p>
+          </div>
+          <div class="about-card reveal">
+            <div class="about-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="m14.5 14.5 2.5 2.5"/></svg>
+            </div>
+            <h3 data-i18n="card.forensics.title">Digital Forensics</h3>
+            <p data-i18n="card.forensics.desc">Linux, Windows &amp; Android forensics, memory analysis</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SKILLS ======= -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title" data-i18n="skills.title">Technical <span class="accent">Skills</span></h2>
+      <div class="skills-grid">
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-dot cat-red"></span>
+            <span data-i18n="skill.cat.offensive">Offensive Security</span>
+          </h3>
+          <div class="skill-tags">
+            <span class="tag tag-red" data-i18n="skill.webpentest">Web App Pentesting</span>
+            <span class="tag tag-red">API Security</span>
+            <span class="tag tag-red">Recon &amp; OSINT</span>
+            <span class="tag tag-red">VAPT</span>
+            <span class="tag tag-red">Bug Bounty</span>
+            <span class="tag tag-red">SQLi / XSS / LFI</span>
+            <span class="tag tag-red">WAF Bypass</span>
+            <span class="tag tag-red">Fuzzing</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-dot cat-cyan"></span>
+            <span data-i18n="skill.cat.defensive">Defensive / SOC</span>
+          </h3>
+          <div class="skill-tags">
+            <span class="tag tag-cyan">SIEM</span>
+            <span class="tag tag-cyan" data-i18n="skill.soc">SOC Operations</span>
+            <span class="tag tag-cyan" data-i18n="skill.ir">Incident Response</span>
+            <span class="tag tag-cyan" data-i18n="skill.th">Threat Hunting</span>
+            <span class="tag tag-cyan">NDR / EDR / WAF</span>
+            <span class="tag tag-cyan">IPS / IDS</span>
+            <span class="tag tag-cyan" data-i18n="skill.cve">CVE Management</span>
+            <span class="tag tag-cyan" data-i18n="skill.dfir">Digital Forensics</span>
+            <span class="tag tag-cyan" data-i18n="skill.tm">Threat Modeling</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-dot cat-purple"></span>
+            <span data-i18n="skill.cat.cloud">Cloud &amp; DevSecOps</span>
+          </h3>
+          <div class="skill-tags">
+            <span class="tag tag-purple">AWS</span>
+            <span class="tag tag-purple">Microsoft Azure</span>
+            <span class="tag tag-purple">Azure AD</span>
+            <span class="tag tag-purple">Kubernetes</span>
+            <span class="tag tag-purple">Docker</span>
+            <span class="tag tag-purple">CI/CD</span>
+            <span class="tag tag-purple">Jenkins</span>
+            <span class="tag tag-purple">Terraform</span>
+            <span class="tag tag-purple">ArgoCD</span>
+            <span class="tag tag-purple">SAST / DAST / SCA</span>
+            <span class="tag tag-purple" data-i18n="skill.secrets">Secrets Management</span>
+            <span class="tag tag-purple" data-i18n="skill.monitoring">Monitoring &amp; Logging</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-dot cat-green"></span>
+            <span data-i18n="skill.cat.prog">Programming &amp; Scripting</span>
+          </h3>
+          <div class="skill-tags">
+            <span class="tag tag-green">Python</span>
+            <span class="tag tag-green">Bash Scripting</span>
+            <span class="tag tag-green">C</span>
+            <span class="tag tag-green">Shell</span>
+            <span class="tag tag-green">PowerShell</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-dot cat-yellow"></span>
+            <span data-i18n="skill.cat.tools">Security Tools</span>
+          </h3>
+          <div class="skill-tags">
+            <span class="tag tag-yellow">Burp Suite</span>
+            <span class="tag tag-yellow">OWASP ZAP</span>
+            <span class="tag tag-yellow">Nmap</span>
+            <span class="tag tag-yellow">Wireshark</span>
+            <span class="tag tag-yellow">Metasploit</span>
+            <span class="tag tag-yellow">Nessus</span>
+            <span class="tag tag-yellow">OpenVAS</span>
+            <span class="tag tag-yellow">Nuclei</span>
+            <span class="tag tag-yellow">SQLMap</span>
+            <span class="tag tag-yellow">Shodan</span>
+            <span class="tag tag-yellow">CrackMapExec</span>
+            <span class="tag tag-yellow">BloodHound</span>
+            <span class="tag tag-yellow">Volatility</span>
+            <span class="tag tag-yellow">Ghidra</span>
+            <span class="tag tag-yellow">ELK Stack</span>
+            <span class="tag tag-yellow">SonarQube</span>
+            <span class="tag tag-yellow">Trivy</span>
+            <span class="tag tag-yellow">Palo Alto</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-cat-title">
+            <span class="cat-dot cat-gray"></span>
+            <span data-i18n="skill.cat.compliance">Compliance &amp; Frameworks</span>
+          </h3>
+          <div class="skill-tags">
+            <span class="tag tag-gray">PCI-DSS</span>
+            <span class="tag tag-gray">ISO 27001</span>
+            <span class="tag tag-gray">NIST</span>
+            <span class="tag tag-gray" data-i18n="skill.netsec">Network Security</span>
+            <span class="tag tag-gray">IPSec VPN</span>
+            <span class="tag tag-gray">DLP</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= EXPERIENCE ======= -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="exp.title">Work <span class="accent">Experience</span></h2>
+      <div class="timeline">
+
+        <!-- Job 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-header">
+              <div class="tl-title-group">
+                <h3 class="tl-role" data-i18n="job1.role">SecOps Engineer</h3>
+                <span class="tl-company">Tessi</span>
+              </div>
+              <div class="tl-meta">
+                <span class="tl-date" data-i18n="job1.date">Mar 2025 – Present</span>
+                <span class="tl-location" data-i18n="job1.loc">Oujda, Morocco · Hybrid</span>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li data-i18n="job1.b1">Monitor, analyze and investigate security alerts (Network, SaaS, Email, Endpoint) via SIEM, NDR, EDR, WAF, and IPS/IDS</li>
+              <li data-i18n="job1.b2">Critical vulnerability (CVE) monitoring, exposure analysis, and remediation tracking</li>
+              <li data-i18n="job1.b3">Respond to client cybersecurity questionnaires (ISO 27001 compliance posture)</li>
+              <li data-i18n="job1.b4">Developed a Python dashboard with IRIS API for incident/alert/CVE visualization and SOC KPI tracking (MTTD, MTTR)</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tag-sm">SIEM</span><span class="tag-sm">EDR</span>
+              <span class="tag-sm">NDR</span><span class="tag-sm">SOC</span>
+              <span class="tag-sm">Python</span><span class="tag-sm">ISO 27001</span>
+              <span class="tag-sm">CVE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-header">
+              <div class="tl-title-group">
+                <h3 class="tl-role" data-i18n="job2.role">Network &amp; Security Engineer</h3>
+                <span class="tl-company">
+                  Société Générale ABS
+                  <span class="badge-intern" data-i18n="job2.badge">Internship · 6 months</span>
+                </span>
+              </div>
+              <div class="tl-meta">
+                <span class="tl-date" data-i18n="job2.date">Feb 2024 – Aug 2024</span>
+                <span class="tl-location" data-i18n="job2.loc">Casablanca, Morocco</span>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li data-i18n="job2.b1">Built a secure network infrastructure connecting SG African subsidiaries to the public internet with NGFW, Proxy, and DLP layers</li>
+              <li data-i18n="job2.b2">Configured IPSec VPN tunnels for site-to-site connectivity</li>
+              <li data-i18n="job2.b3">Assisted with PCI-DSS compliance implementation</li>
+              <li data-i18n="job2.b4">Contributed to EDR and IDS/IPS solution deployment</li>
+              <li data-i18n="job2.b5">Managed HW &amp; SW obsolescence</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tag-sm">NGFW</span><span class="tag-sm">IPSec VPN</span>
+              <span class="tag-sm">PCI-DSS</span><span class="tag-sm">EDR</span>
+              <span class="tag-sm">IDS/IPS</span><span class="tag-sm">DLP</span>
+              <span class="tag-sm">Proxy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-header">
+              <div class="tl-title-group">
+                <h3 class="tl-role" data-i18n="job3.role">Cybersecurity Engineer</h3>
+                <span class="tl-company">
+                  Tisalabs
+                  <span class="badge-intern" data-i18n="job3.badge">Internship · 2 months</span>
+                </span>
+              </div>
+              <div class="tl-meta">
+                <span class="tl-date" data-i18n="job3.date">Jul 2023 – Sep 2023</span>
+                <span class="tl-location" data-i18n="job3.loc">Cork, Ireland · Remote</span>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li data-i18n="job3.b1">Vulnerability Assessment and Penetration Testing (VAPT)</li>
+              <li data-i18n="job3.b2">Python development and Bash scripting for automation</li>
+              <li data-i18n="job3.b3">Docker containerization and Kubernetes security</li>
+              <li data-i18n="job3.b4">Agile methodology — GitLab workflows</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tag-sm">VAPT</span><span class="tag-sm">Python</span>
+              <span class="tag-sm">Bash</span><span class="tag-sm">Docker</span>
+              <span class="tag-sm">Kubernetes</span><span class="tag-sm">GitLab</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= EDUCATION ======= -->
+  <section id="education" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title" data-i18n="edu.title">Education</h2>
+      <div class="edu-card reveal">
+        <div class="edu-icon-wrap">
+          <img src="./assets/images/ensao.png" alt="ENSA Oujda" class="edu-logo">
+        </div>
+        <div class="edu-body">
+          <div class="tl-header">
+            <div class="tl-title-group">
+              <h3 class="tl-role" data-i18n="edu.degree">State Engineer Diploma — Computer Security &amp; Cybersecurity</h3>
+              <span class="tl-company" data-i18n="edu.school">ENSA Oujda (École Nationale des Sciences Appliquées)</span>
+            </div>
+            <div class="tl-meta">
+              <span class="tl-date">2019 – 2024</span>
+              <span class="tl-location" data-i18n="edu.loc">Oujda, Morocco</span>
+            </div>
+          </div>
+          <p class="edu-desc" data-i18n="edu.desc">
+            5-year engineering program covering networks, system administration, cryptography, mobile security,
+            ethical hacking, penetration testing, cloud computing, big data, machine learning, and security audits.
+          </p>
+          <div class="tl-tags">
+            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag1">Networking</span>
+            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag2">Cryptography</span>
+            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag3">Ethical Hacking</span>
+            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag4">Penetration Testing</span>
+            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag5">Cloud Computing</span>
+            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag6">Machine Learning</span>
+            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag7">Security Audits</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= PROJECTS ======= -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="proj.title">Recent <span class="accent">Projects</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-icon">&#9729;</span>
+            <span class="badge-featured" data-i18n="proj.featured">Featured</span>
+          </div>
+          <h3 class="project-title" data-i18n="proj1.title">Cloud-Native DevSecOps on AWS EKS</h3>
+          <p class="project-desc" data-i18n="proj1.desc">
+            End-to-end DevSecOps pipeline for a 3-tier application on Amazon EKS. CI/CD with
+            Jenkins + ArgoCD + Terraform IaC. Security embedded at every stage: GitLeaks
+            pre-commit hooks, SAST tools, OWASP DependencyCheck (SCA), OWASP ZAP (DAST),
+            Trivy for containers/Kubernetes/IaC, SonarQube for code quality, Vault for secrets,
+            Prometheus &amp; Grafana for monitoring, and EFK for centralized logging.
+          </p>
+          <div class="project-tech">
+            <span>AWS EKS</span><span>Kubernetes</span><span>Jenkins</span>
+            <span>Terraform</span><span>ArgoCD</span><span>Trivy</span>
+            <span>SonarQube</span><span>Vault</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-icon">&#127760;</span>
+          </div>
+          <h3 class="project-title" data-i18n="proj2.title">RDP Brute-Force Map — Azure Sentinel</h3>
+          <p class="project-desc" data-i18n="proj2.desc">
+            Real-time global threat map tracking RDP brute-force attacks using Azure Sentinel
+            SIEM. A custom PowerShell script extracts event metadata from Windows Event Viewer
+            and enriches it via geolocation API. Azure Log Analytics ingests custom logs;
+            a Sentinel workbook visualizes global attacks by location and intensity.
+          </p>
+          <div class="project-tech">
+            <span>Azure Sentinel</span><span>Log Analytics</span>
+            <span>PowerShell</span><span>SIEM</span><span>Geolocation API</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-icon">&#128187;</span>
+          </div>
+          <h3 class="project-title" data-i18n="proj3.title">Web &amp; API Pentest Automation</h3>
+          <p class="project-desc" data-i18n="proj3.desc">
+            Suite of Bash scripts automating repetitive pentesting and bug bounty tasks:
+            recon, WAF detection &amp; bypass, technology fingerprinting (WordPress, GraphQL),
+            fuzzing, spidering, secrets scanning, and comprehensive vulnerability testing
+            (LFI, SQLi, XSS).
+          </p>
+          <div class="project-tech">
+            <span>Bash</span><span>Recon</span><span>WAF Bypass</span>
+            <span>Fuzzing</span><span>SQLi / XSS</span><span>Bug Bounty</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-icon">&#128269;</span>
+          </div>
+          <h3 class="project-title" data-i18n="proj4.title">Web App Source Code Security Audit</h3>
+          <p class="project-desc" data-i18n="proj4.desc">
+            In-depth source code analysis of PHP and Node.js applications to identify
+            critical vulnerabilities — input validation flaws, authentication weaknesses,
+            error handling issues, and business logic bugs. Proposed concrete remediations
+            including secure coding practices, input validation, and regular audits.
+          </p>
+          <div class="project-tech">
+            <span>PHP</span><span>Node.js</span><span>SAST</span>
+            <span>Code Review</span><span>OWASP Top 10</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CERTIFICATIONS ======= -->
+  <section id="certifications" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title" data-i18n="cert.title">Achievements &amp; <span class="accent">Certifications</span></h2>
+      <div class="certs-grid">
+
+        <div class="cert-card cert-featured reveal">
+          <div class="cert-icon">&#127942;</div>
+          <div class="cert-body">
+            <h3>TryHackMe — Top 1%</h3>
+            <p data-i18n="cert1.desc">Web Fundamentals · Pre-Security · Jr. Pentester · Pentest+ · Cyber Defense</p>
+            <span class="cert-badge">Top 1%</span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon">&#9889;</div>
+          <div class="cert-body">
+            <h3 data-i18n="cert2.title">HackTheBox — Senior Web Penetration Tester</h3>
+            <p data-i18n="cert2.desc">Offensive Web Security Track</p>
+            <div class="cert-progress-wrap">
+              <div class="cert-bar"><div class="cert-fill" style="width:67%"></div></div>
+              <span>67%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon">&#128737;</div>
+          <div class="cert-body">
+            <h3 data-i18n="cert3.title">HackTheBox — SOC Analyst</h3>
+            <p data-i18n="cert3.desc">Blue Team Operations Track</p>
+            <div class="cert-progress-wrap">
+              <div class="cert-bar"><div class="cert-fill cert-fill-purple" style="width:50%"></div></div>
+              <span>50%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon">&#9729;</div>
+          <div class="cert-body">
+            <h3 data-i18n="cert4.title">Azure Security Engineer (AZ-500)</h3>
+            <p data-i18n="cert4.desc">CloudGuru · Microsoft Azure Security</p>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon">&#128421;</div>
+          <div class="cert-body">
+            <h3 data-i18n="cert5.title">AWS Cloud Practitioner + Security Fundamentals</h3>
+            <p data-i18n="cert5.desc">CloudGuru · Amazon Web Services</p>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <div class="cert-icon">&#127947;</div>
+          <div class="cert-body">
+            <h3 data-i18n="cert6.title">CTF Competition — 3rd Place</h3>
+            <p data-i18n="cert6.desc">University CTF · Competitive Hacking</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CONTACT ======= -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="contact.title">Get In <span class="accent">Touch</span></h2>
+      <div class="contact-wrapper">
+        <p class="contact-intro reveal" data-i18n="contact.intro">
+          I'm open to new opportunities, collaborations, or just a good conversation about
+          cybersecurity. Whether you have a project in mind or want to discuss the latest in
+          threat intelligence — feel free to reach out.
+        </p>
+        <div class="contact-links reveal">
+          <a href="mailto:ayoub.02.abad@gmail.com" class="contact-link">
+            <span class="contact-link-icon">&#9993;</span>
+            <div>
+              <span class="cl-label" data-i18n="contact.email.label">Email</span>
+              <span class="cl-value">ayoub.02.abad@gmail.com</span>
+            </div>
+            <span class="cl-arrow">&#8594;</span>
+          </a>
+          <a href="https://linkedin.com/in/abaa-youb" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon">&#128188;</span>
+            <div>
+              <span class="cl-label">LinkedIn</span>
+              <span class="cl-value">linkedin.com/in/abaa-youb</span>
+            </div>
+            <span class="cl-arrow">&#8594;</span>
+          </a>
+          <a href="https://tryhackme.com" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon">&#128275;</span>
+            <div>
+              <span class="cl-label">TryHackMe</span>
+              <span class="cl-value" data-i18n="contact.thm.value">Top 1% Rank</span>
+            </div>
+            <span class="cl-arrow">&#8594;</span>
+          </a>
+        </div>
+        <div class="contact-cta reveal">
+          <a href="mailto:ayoub.02.abad@gmail.com" class="btn-primary btn-lg" data-i18n="contact.cta">
+            Send a Message
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">Fl0wHero<span class="accent">_</span></span>
+        <span class="footer-copy" data-i18n="footer.copy">&copy; 2025 ABAD Ayoub &middot; Cybersecurity Engineer</span>
+        <span class="footer-credit" data-i18n="footer.credit">Built with <span class="accent">&#10084;</span> &amp; 0s and 1s</span>
+      </div>
+    </div>
+  </footer>
+
   <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
-
 </html>

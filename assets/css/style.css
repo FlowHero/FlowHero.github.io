@@ -505,6 +505,55 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 .tag-yellow { background: var(--yellow-10); color: var(--yellow); border: 1px solid var(--yellow-20); }
 .tag-gray   { background: rgba(74,85,104,0.15); color: var(--text-dim); border: 1px solid rgba(74,85,104,0.25); }
 
+/* ─── SKILL LEVEL BAR (inside cards) ────── */
+.skill-level {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.sl-track {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: visible;
+  position: relative;
+}
+.sl-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  background: var(--sl-color, var(--cyan));
+  box-shadow: 0 0 8px var(--sl-color, var(--cyan));
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.sl-bar::after {
+  content: '';
+  position: absolute;
+  right: -4px; top: -3px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--sl-color, var(--cyan));
+  box-shadow: 0 0 10px var(--sl-color, var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease 0.8s;
+}
+.skill-level.sl-done .sl-bar::after { opacity: 1; }
+.sl-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--sl-color, var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease 0.7s;
+  flex-shrink: 0;
+}
+.skill-level.sl-done .sl-pct { opacity: 1; }
+
 /* ─── TIMELINE ───────────────────────────── */
 .timeline {
   position: relative;
@@ -634,9 +683,9 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   font-weight: 500;
 }
 .tag-sm-edu {
-  background: var(--purple-10);
-  color: var(--purple);
-  border-color: var(--purple-20);
+  background: var(--cyan-10);
+  color: var(--cyan);
+  border-color: var(--cyan-20);
 }
 
 /* ─── PROJECTS ───────────────────────────── */
@@ -665,7 +714,8 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   justify-content: space-between;
   margin-bottom: 16px;
 }
-.project-icon { font-size: 1.875rem; }
+.project-icon { font-size: 1.875rem; display: flex; align-items: center; }
+.project-icon svg { width: 1.875rem; height: 1.875rem; flex-shrink: 0; }
 .badge-featured {
   padding: 3px 10px;
   background: var(--green-10);
@@ -736,6 +786,8 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   flex-shrink: 0;
   margin-top: 1px;
   line-height: 1;
+  display: flex;
+  align-items: flex-start;
 }
 .cert-body h3 {
   font-size: 0.9rem;
@@ -824,7 +876,9 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   transform: translateX(4px);
   box-shadow: var(--shadow-glow);
 }
-.contact-link-icon { font-size: 1.5rem; flex-shrink: 0; }
+.contact-link-icon { font-size: 1.5rem; flex-shrink: 0; display: flex; align-items: center; }
+.cert-icon svg,
+.contact-link-icon svg { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
 .contact-link > div { flex: 1; }
 .cl-label {
   display: block;
@@ -964,7 +1018,7 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 .edu-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--purple);
+  border-left: 4px solid var(--cyan);
   border-radius: var(--radius);
   padding: 32px;
   display: flex;
@@ -973,8 +1027,8 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 .edu-card:hover {
-  border-color: var(--purple);
-  box-shadow: 0 0 24px rgba(139, 92, 246, 0.12);
+  border-color: var(--cyan);
+  box-shadow: var(--shadow-glow);
 }
 .edu-icon-wrap {
   flex-shrink: 0;

@@ -342,6 +342,28 @@ applyLang(currentLang);
 }());
 
 
+// ─── SKILL LEVEL BARS ──────────────────────────────────────
+(function () {
+  const levels = document.querySelectorAll('.skill-level');
+  if (!levels.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const lvl = e.target;
+      const bar = lvl.querySelector('.sl-bar');
+      if (bar) {
+        setTimeout(() => {
+          bar.style.width = lvl.dataset.slLevel + '%';
+          lvl.classList.add('sl-done');
+        }, 80);
+      }
+      io.unobserve(lvl);
+    });
+  }, { threshold: 0.3 });
+  levels.forEach(l => io.observe(l));
+}());
+
+
 // ─── SMOOTH ANCHOR SCROLL ──────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function (e) {

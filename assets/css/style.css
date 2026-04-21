@@ -939,6 +939,283 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   transform: translateY(0);
 }
 
+/* ─── SKILLS LAYOUT (Radar + Matrix) ─────── */
+.sm-layout {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sm-radar-wrap {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  background: rgba(10, 18, 32, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  transition: border-color 0.3s;
+}
+
+.sm-radar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.sm-radar-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sm-radar-hint {
+  font-size: 0.62rem;
+  color: var(--muted);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+#skillsRadar {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  cursor: default;
+}
+
+.sm-radar-tooltip {
+  text-align: center;
+  min-height: 1.5rem;
+  margin-top: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  transition: opacity 0.2s;
+  line-height: 1.5rem;
+}
+.sm-radar-tooltip strong { font-weight: 700; }
+
+.sm-radar-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 0.4rem;
+  margin-top: 0.65rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sm-rl-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.66rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.18rem 0.3rem;
+  transition: background 0.2s, color 0.2s;
+  user-select: none;
+}
+.sm-rl-item:hover,
+.sm-rl-item.sm-rl-active { color: var(--text); background: rgba(255,255,255,0.04); }
+
+.sm-rl-item i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-style: normal;
+  transition: transform 0.2s;
+}
+.sm-rl-item.sm-rl-active i { transform: scale(1.5); }
+
+/* Card active state */
+.sm-card.sm-active {
+  border-color: color-mix(in srgb, var(--sm-color) 55%, transparent) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 0 28px color-mix(in srgb, var(--sm-color) 18%, transparent),
+              0 8px 24px rgba(0,0,0,0.4);
+}
+.sm-card.sm-active .sm-glow-bg { opacity: 0.5; }
+.sm-card.sm-active .sm-icon {
+  box-shadow: 0 0 20px var(--sm-glow);
+  transform: scale(1.08);
+}
+
+.sm-layout .skills-matrix {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .sm-layout { grid-template-columns: 1fr; }
+  .sm-radar-wrap { position: static; max-width: 440px; margin: 0 auto; }
+  .sm-layout .skills-matrix { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .sm-layout .skills-matrix { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .sm-layout .skills-matrix { grid-template-columns: 1fr; }
+}
+/* ─── SKILLS MATRIX ──────────────────────── */
+
+.skills-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .skills-matrix { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 580px) {
+  .skills-matrix { grid-template-columns: 1fr; }
+}
+
+.sm-card {
+  position: relative;
+  background: rgba(10, 18, 32, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  padding: 1.4rem;
+  overflow: hidden;
+  transition: border-color 0.35s, transform 0.35s;
+  cursor: default;
+}
+
+.sm-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-3px);
+}
+
+.sm-glow-bg {
+  position: absolute;
+  inset: -20px;
+  border-radius: 1.5rem;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), var(--sm-glow), transparent 68%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  filter: blur(18px);
+}
+
+.sm-card:hover .sm-glow-bg { opacity: 0.45; }
+
+.sm-inner { position: relative; z-index: 1; }
+
+.sm-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.sm-icon {
+  flex-shrink: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--sm-color) 13%, transparent);
+  transition: box-shadow 0.35s, transform 0.35s;
+  color: var(--sm-color);
+}
+
+.sm-card:hover .sm-icon {
+  box-shadow: 0 0 18px var(--sm-glow);
+  transform: scale(1.08);
+}
+
+.sm-meta { flex: 1; min-width: 0; }
+
+.sm-meta h4 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.18rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sm-meta p {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sm-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1.1rem;
+}
+
+.sm-bar {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sm-color), color-mix(in srgb, var(--sm-color) 75%, white));
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.sm-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.28) 50%, transparent 100%);
+  transform: translateX(-100%);
+}
+
+.sm-card:hover .sm-bar { box-shadow: 0 0 10px var(--sm-glow); }
+
+.sm-card:hover .sm-bar::after {
+  animation: sm-shimmer 2s linear infinite;
+}
+
+@keyframes sm-shimmer {
+  to { transform: translateX(200%); }
+}
+
+.sm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.sm-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 0.28rem 0.6rem;
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--sm-color) 10%, transparent);
+  color: var(--sm-color);
+  border: 1px solid color-mix(in srgb, var(--sm-color) 28%, transparent);
+  transition: transform 0.2s, background 0.2s;
+  line-height: 1.4;
+}
+
+.sm-tag:hover { transform: scale(1.06); }
+
 /* ─── ANIMATIONS ─────────────────────────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }

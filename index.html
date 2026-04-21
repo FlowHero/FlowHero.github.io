@@ -10,6 +10,45 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    /* Skills layout override */
+    .sm-layout {
+      margin-top: 3.5rem;
+      display: grid !important;
+      grid-template-columns: 400px 1fr !important;
+      gap: 2rem;
+      align-items: start;
+    }
+    .sm-radar-wrap {
+      position: sticky;
+      top: calc(64px + 1.5rem);
+    }
+    .sm-layout .skills-matrix {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    @media (max-width: 960px) {
+      .sm-layout { grid-template-columns: 1fr !important; }
+      .sm-radar-wrap { position: static; max-width: 440px; margin: 0 auto; }
+      .sm-layout .skills-matrix { grid-template-columns: repeat(3, 1fr) !important; }
+    }
+    @media (max-width: 640px) {
+      .sm-layout .skills-matrix { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 440px) {
+      .sm-layout .skills-matrix { grid-template-columns: 1fr !important; }
+    }
+    .sm-radar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .sm-radar-title { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.1em; }
+    .sm-radar-hint { font-size: 0.62rem; color: #4a5568; opacity: 0.5; font-style: italic; }
+    .sm-radar-tooltip { text-align: center; min-height: 1.5rem; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #94a3b8; line-height: 1.5rem; }
+    .sm-rl-item { cursor: pointer; border-radius: 0.4rem; padding: 0.18rem 0.3rem; transition: background 0.2s, color 0.2s; user-select: none; }
+    .sm-rl-item:hover, .sm-rl-item.sm-rl-active { color: #e2e8f0; background: rgba(255,255,255,0.04); }
+    .sm-rl-item i { transition: transform 0.2s; }
+    .sm-rl-item.sm-rl-active i { transform: scale(1.5); }
+    .sm-card.sm-active { border-color: color-mix(in srgb, var(--sm-color) 55%, transparent) !important; transform: translateY(-4px) !important; box-shadow: 0 0 28px color-mix(in srgb, var(--sm-color) 18%, transparent), 0 8px 24px rgba(0,0,0,0.4); }
+    .sm-card.sm-active .sm-glow-bg { opacity: 0.5; }
+    .sm-card.sm-active .sm-icon { box-shadow: 0 0 20px var(--sm-glow); transform: scale(1.08); }
+  </style>
 </head>
 <body>
 
@@ -136,36 +175,6 @@
           </div>
         </div>
 
-        <div class="about-cards">
-          <div class="about-card reveal">
-            <div class="about-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
-            </div>
-            <h3 data-i18n="card.off.title">Offensive Security</h3>
-            <p data-i18n="card.off.desc">Web App Pentesting, VAPT, Bug Bounty, CTF competitions</p>
-          </div>
-          <div class="about-card reveal">
-            <div class="about-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            </div>
-            <h3 data-i18n="card.def.title">Defensive / SOC</h3>
-            <p data-i18n="card.def.desc">SIEM operations, Incident Response, Threat Hunting, CVE management</p>
-          </div>
-          <div class="about-card reveal">
-            <div class="about-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <h3 data-i18n="card.cloud.title">Cloud &amp; DevSecOps</h3>
-            <p data-i18n="card.cloud.desc">AWS, Azure, Kubernetes security, CI/CD pipelines, IaC scanning</p>
-          </div>
-          <div class="about-card reveal">
-            <div class="about-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="m14.5 14.5 2.5 2.5"/></svg>
-            </div>
-            <h3 data-i18n="card.forensics.title">Digital Forensics</h3>
-            <p data-i18n="card.forensics.desc">Linux, Windows &amp; Android forensics, memory analysis</p>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -176,145 +185,175 @@
     <div class="container">
       <h2 class="section-title" data-i18n="skills.title">Technical <span class="accent">Skills</span></h2>
 
-      <div class="skills-grid">
+      <!-- ── Skills Layout: Radar + Matrix ──────────────── -->
+      <div class="sm-layout">
 
-        <div class="skill-category reveal">
-          <h3 class="skill-cat-title">
-            <span class="cat-dot cat-red"></span>
-            <span data-i18n="skill.cat.offensive">Offensive Security</span>
-          </h3>
-          <div class="skill-tags">
-            <span class="tag tag-red" data-i18n="skill.webpentest">Web App Pentesting</span>
-            <span class="tag tag-red">API Security</span>
-            <span class="tag tag-red">Recon &amp; OSINT</span>
-            <span class="tag tag-red">VAPT</span>
-            <span class="tag tag-red">Bug Bounty</span>
-            <span class="tag tag-red">SQLi / XSS / LFI</span>
-            <span class="tag tag-red">WAF Bypass</span>
-            <span class="tag tag-red">Fuzzing</span>
+        <!-- Radar Chart -->
+        <div class="sm-radar-wrap reveal">
+          <div class="sm-radar-header">
+            <span class="sm-radar-title">// skill_radar.exe</span>
+            <span class="sm-radar-hint">hover to inspect</span>
           </div>
-          <div class="skill-level" data-sl-level="87" style="--sl-color:var(--red);">
-            <div class="sl-track"><div class="sl-bar"></div></div>
-            <span class="sl-pct">87%</span>
+          <canvas id="skillsRadar"></canvas>
+          <div class="sm-radar-tooltip" id="sm-radar-tooltip">&nbsp;</div>
+          <div class="sm-radar-legend">
+            <span class="sm-rl-item" data-skill-index="0"><i style="background:#ff4d6d;box-shadow:0 0 5px #ff4d6d80"></i>Offensive Sec</span>
+            <span class="sm-rl-item" data-skill-index="1"><i style="background:#00d4ff;box-shadow:0 0 5px #00d4ff80"></i>Defensive / SOC</span>
+            <span class="sm-rl-item" data-skill-index="2"><i style="background:#8b5cf6;box-shadow:0 0 5px #8b5cf680"></i>Cloud &amp; DevSec</span>
+            <span class="sm-rl-item" data-skill-index="3"><i style="background:#00e676;box-shadow:0 0 5px #00e67680"></i>Programming</span>
+            <span class="sm-rl-item" data-skill-index="4"><i style="background:#fbbf24;box-shadow:0 0 5px #fbbf2480"></i>Security Tools</span>
+            <span class="sm-rl-item" data-skill-index="5"><i style="background:#94a3b8;box-shadow:0 0 5px #94a3b880"></i>Compliance</span>
           </div>
         </div>
 
-        <div class="skill-category reveal">
-          <h3 class="skill-cat-title">
-            <span class="cat-dot cat-cyan"></span>
-            <span data-i18n="skill.cat.defensive">Defensive / SOC</span>
-          </h3>
-          <div class="skill-tags">
-            <span class="tag tag-cyan">SIEM</span>
-            <span class="tag tag-cyan" data-i18n="skill.soc">SOC Operations</span>
-            <span class="tag tag-cyan" data-i18n="skill.ir">Incident Response</span>
-            <span class="tag tag-cyan" data-i18n="skill.th">Threat Hunting</span>
-            <span class="tag tag-cyan">NDR / EDR / WAF</span>
-            <span class="tag tag-cyan">IPS / IDS</span>
-            <span class="tag tag-cyan" data-i18n="skill.cve">CVE Management</span>
-            <span class="tag tag-cyan" data-i18n="skill.dfir">Digital Forensics</span>
-            <span class="tag tag-cyan" data-i18n="skill.tm">Threat Modeling</span>
-          </div>
-          <div class="skill-level" data-sl-level="85" style="--sl-color:var(--cyan);">
-            <div class="sl-track"><div class="sl-bar"></div></div>
-            <span class="sl-pct">85%</span>
-          </div>
-        </div>
+        <div class="skills-matrix">
 
-        <div class="skill-category reveal">
-          <h3 class="skill-cat-title">
-            <span class="cat-dot cat-purple"></span>
-            <span data-i18n="skill.cat.cloud">Cloud &amp; DevSecOps</span>
-          </h3>
-          <div class="skill-tags">
-            <span class="tag tag-purple">AWS</span>
-            <span class="tag tag-purple">Microsoft Azure</span>
-            <span class="tag tag-purple">Azure AD</span>
-            <span class="tag tag-purple">Kubernetes</span>
-            <span class="tag tag-purple">Docker</span>
-            <span class="tag tag-purple">CI/CD</span>
-            <span class="tag tag-purple">Jenkins</span>
-            <span class="tag tag-purple">Terraform</span>
-            <span class="tag tag-purple">ArgoCD</span>
-            <span class="tag tag-purple">SAST / DAST / SCA</span>
-            <span class="tag tag-purple" data-i18n="skill.secrets">Secrets Management</span>
-            <span class="tag tag-purple" data-i18n="skill.monitoring">Monitoring &amp; Logging</span>
+          <div class="sm-card reveal" data-sm-pct="87" data-skill-index="0" style="--sm-color:#ff4d6d;--sm-glow:rgba(255,77,109,0.4);">
+            <div class="sm-glow-bg"></div>
+            <div class="sm-inner">
+              <div class="sm-header">
+                <div class="sm-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <div class="sm-meta">
+                  <h4>Offensive Security</h4>
+                  <p>87% Proficiency</p>
+                </div>
+              </div>
+              <div class="sm-track"><div class="sm-bar"></div></div>
+              <div class="sm-tags">
+                <span class="sm-tag">Web App Pentesting</span>
+                <span class="sm-tag">API Security</span>
+                <span class="sm-tag">Bug Bounty</span>
+                <span class="sm-tag">SQLi / XSS / LFI</span>
+                <span class="sm-tag">Recon &amp; OSINT</span>
+                <span class="sm-tag">WAF Bypass</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-level" data-sl-level="66" style="--sl-color:var(--purple);">
-            <div class="sl-track"><div class="sl-bar"></div></div>
-            <span class="sl-pct">66%</span>
-          </div>
-        </div>
 
-        <div class="skill-category reveal">
-          <h3 class="skill-cat-title">
-            <span class="cat-dot cat-green"></span>
-            <span data-i18n="skill.cat.prog">Programming &amp; Scripting</span>
-          </h3>
-          <div class="skill-tags">
-            <span class="tag tag-green">Python</span>
-            <span class="tag tag-green">Bash Scripting</span>
-            <span class="tag tag-green">C</span>
-            <span class="tag tag-green">Shell</span>
-            <span class="tag tag-green">PowerShell</span>
+          <div class="sm-card reveal" data-sm-pct="85" data-skill-index="1" style="--sm-color:#00d4ff;--sm-glow:rgba(0,212,255,0.4);">
+            <div class="sm-glow-bg"></div>
+            <div class="sm-inner">
+              <div class="sm-header">
+                <div class="sm-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                </div>
+                <div class="sm-meta">
+                  <h4>Defensive / SOC</h4>
+                  <p>85% Proficiency</p>
+                </div>
+              </div>
+              <div class="sm-track"><div class="sm-bar"></div></div>
+              <div class="sm-tags">
+                <span class="sm-tag">SIEM</span>
+                <span class="sm-tag">SOC Operations</span>
+                <span class="sm-tag">Incident Response</span>
+                <span class="sm-tag">Threat Hunting</span>
+                <span class="sm-tag">NDR / EDR / WAF</span>
+                <span class="sm-tag">CVE Management</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-level" data-sl-level="76" style="--sl-color:var(--green);">
-            <div class="sl-track"><div class="sl-bar"></div></div>
-            <span class="sl-pct">76%</span>
-          </div>
-        </div>
 
-        <div class="skill-category reveal">
-          <h3 class="skill-cat-title">
-            <span class="cat-dot cat-yellow"></span>
-            <span data-i18n="skill.cat.tools">Security Tools</span>
-          </h3>
-          <div class="skill-tags">
-            <span class="tag tag-yellow">Burp Suite</span>
-            <span class="tag tag-yellow">OWASP ZAP</span>
-            <span class="tag tag-yellow">Nmap</span>
-            <span class="tag tag-yellow">Wireshark</span>
-            <span class="tag tag-yellow">Metasploit</span>
-            <span class="tag tag-yellow">Nessus</span>
-            <span class="tag tag-yellow">OpenVAS</span>
-            <span class="tag tag-yellow">Nuclei</span>
-            <span class="tag tag-yellow">SQLMap</span>
-            <span class="tag tag-yellow">Shodan</span>
-            <span class="tag tag-yellow">CrackMapExec</span>
-            <span class="tag tag-yellow">BloodHound</span>
-            <span class="tag tag-yellow">Volatility</span>
-            <span class="tag tag-yellow">Ghidra</span>
-            <span class="tag tag-yellow">ELK Stack</span>
-            <span class="tag tag-yellow">SonarQube</span>
-            <span class="tag tag-yellow">Trivy</span>
-            <span class="tag tag-yellow">Palo Alto</span>
+          <div class="sm-card reveal" data-sm-pct="66" data-skill-index="2" style="--sm-color:#8b5cf6;--sm-glow:rgba(139,92,246,0.4);">
+            <div class="sm-glow-bg"></div>
+            <div class="sm-inner">
+              <div class="sm-header">
+                <div class="sm-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <div class="sm-meta">
+                  <h4>Cloud &amp; DevSecOps</h4>
+                  <p>66% Proficiency</p>
+                </div>
+              </div>
+              <div class="sm-track"><div class="sm-bar"></div></div>
+              <div class="sm-tags">
+                <span class="sm-tag">AWS</span>
+                <span class="sm-tag">Microsoft Azure</span>
+                <span class="sm-tag">Kubernetes</span>
+                <span class="sm-tag">Docker</span>
+                <span class="sm-tag">CI/CD</span>
+                <span class="sm-tag">SAST / DAST / SCA</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-level" data-sl-level="83" style="--sl-color:var(--yellow);">
-            <div class="sl-track"><div class="sl-bar"></div></div>
-            <span class="sl-pct">83%</span>
-          </div>
-        </div>
 
-        <div class="skill-category reveal">
-          <h3 class="skill-cat-title">
-            <span class="cat-dot cat-gray"></span>
-            <span data-i18n="skill.cat.compliance">Compliance &amp; Frameworks</span>
-          </h3>
-          <div class="skill-tags">
-            <span class="tag tag-gray">PCI-DSS</span>
-            <span class="tag tag-gray">ISO 27001</span>
-            <span class="tag tag-gray">NIST</span>
-            <span class="tag tag-gray" data-i18n="skill.netsec">Network Security</span>
-            <span class="tag tag-gray">IPSec VPN</span>
-            <span class="tag tag-gray">DLP</span>
+          <div class="sm-card reveal" data-sm-pct="76" data-skill-index="3" style="--sm-color:#00e676;--sm-glow:rgba(0,230,118,0.4);">
+            <div class="sm-glow-bg"></div>
+            <div class="sm-inner">
+              <div class="sm-header">
+                <div class="sm-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                </div>
+                <div class="sm-meta">
+                  <h4>Programming &amp; Scripting</h4>
+                  <p>76% Proficiency</p>
+                </div>
+              </div>
+              <div class="sm-track"><div class="sm-bar"></div></div>
+              <div class="sm-tags">
+                <span class="sm-tag">Python</span>
+                <span class="sm-tag">Bash Scripting</span>
+                <span class="sm-tag">PowerShell</span>
+                <span class="sm-tag">Shell</span>
+                <span class="sm-tag">C</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-level" data-sl-level="55" style="--sl-color:var(--text-dim);">
-            <div class="sl-track"><div class="sl-bar"></div></div>
-            <span class="sl-pct">55%</span>
-          </div>
-        </div>
 
+          <div class="sm-card reveal" data-sm-pct="83" data-skill-index="4" style="--sm-color:#fbbf24;--sm-glow:rgba(251,191,36,0.4);">
+            <div class="sm-glow-bg"></div>
+            <div class="sm-inner">
+              <div class="sm-header">
+                <div class="sm-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="sm-meta">
+                  <h4>Security Tools</h4>
+                  <p>83% Proficiency</p>
+                </div>
+              </div>
+              <div class="sm-track"><div class="sm-bar"></div></div>
+              <div class="sm-tags">
+                <span class="sm-tag">Burp Suite</span>
+                <span class="sm-tag">Metasploit</span>
+                <span class="sm-tag">Nmap</span>
+                <span class="sm-tag">Wireshark</span>
+                <span class="sm-tag">SQLMap</span>
+                <span class="sm-tag">Nuclei</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sm-card reveal" data-sm-pct="55" data-skill-index="5" style="--sm-color:#94a3b8;--sm-glow:rgba(148,163,184,0.4);">
+            <div class="sm-glow-bg"></div>
+            <div class="sm-inner">
+              <div class="sm-header">
+                <div class="sm-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div class="sm-meta">
+                  <h4>Compliance &amp; Frameworks</h4>
+                  <p>55% Proficiency</p>
+                </div>
+              </div>
+              <div class="sm-track"><div class="sm-bar"></div></div>
+              <div class="sm-tags">
+                <span class="sm-tag">PCI-DSS</span>
+                <span class="sm-tag">ISO 27001</span>
+                <span class="sm-tag">NIST</span>
+                <span class="sm-tag">Network Security</span>
+                <span class="sm-tag">IPSec VPN</span>
+                <span class="sm-tag">DLP</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+
     </div>
   </section>
 

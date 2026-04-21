@@ -364,6 +364,268 @@ applyLang(currentLang);
 }());
 
 
+// ─── RADAR CHART ───────────────────────────────────────────
+(function () {
+  const canvas = document.getElementById('skillsRadar');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const data = [
+    { label: 'Offensive',  value: 87, color: '#ff4d6d' },
+    { label: 'Defensive',  value: 85, color: '#00d4ff' },
+    { label: 'Cloud',      value: 66, color: '#8b5cf6' },
+    { label: 'Scripting',  value: 76, color: '#00e676' },
+    { label: 'Tools',      value: 83, color: '#fbbf24' },
+    { label: 'Compliance', value: 55, color: '#94a3b8' },
+  ];
+
+  const N = data.length;
+  let progress = 0, started = false, sz = 0;
+  let highlighted = -1;
+  let pulseT = 0, pulseRaf = null;
+
+  function setup() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    sz = canvas.offsetWidth;
+    if (!sz) return;
+    canvas.width  = sz * dpr;
+    canvas.height = sz * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function pt(i, r) {
+    const a  = (i / N) * Math.PI * 2 - Math.PI / 2;
+    const cx = sz / 2, R = sz * 0.26;
+    return { x: cx + r * R * Math.cos(a), y: cx + r * R * Math.sin(a), a };
+  }
+
+  function draw(prog) {
+    if (!sz) return;
+    const cx = sz / 2, R = sz * 0.26, lR = R * 1.3;
+    ctx.clearRect(0, 0, sz, sz);
+
+    // Grid rings
+    [0.2, 0.4, 0.6, 0.8, 1].forEach((t, idx) => {
+      ctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        const p = pt(i, t);
+        i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = idx === 4 ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.04)';
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+    });
+
+    // Axis lines
+    for (let i = 0; i < N; i++) {
+      const p = pt(i, 1);
+      const isHl = i === highlighted;
+      ctx.beginPath(); ctx.moveTo(cx, cx); ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = isHl
+        ? data[i].color.replace(')', ',0.4)').replace('rgb', 'rgba')
+        : 'rgba(255,255,255,0.06)';
+      ctx.lineWidth = isHl ? 1.5 : 0.8;
+      ctx.stroke();
+    }
+
+    // Filled polygon — dim when highlighting
+    ctx.beginPath();
+    for (let i = 0; i < N; i++) {
+      const p = pt(i, (data[i].value / 100) * prog);
+      i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+    }
+    ctx.closePath();
+    const g = ctx.createRadialGradient(cx, cx, 0, cx, cx, R);
+    const alpha = highlighted >= 0 ? 0.13 : 0.28;
+    g.addColorStop(0,   `rgba(0,212,255,${alpha})`);
+    g.addColorStop(0.6, `rgba(139,92,246,${alpha * 0.5})`);
+    g.addColorStop(1,   'rgba(0,212,255,0.02)');
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.strokeStyle = highlighted >= 0 ? 'rgba(0,212,255,0.3)' : 'rgba(0,212,255,0.8)';
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = '#00d4ff';
+    ctx.shadowBlur = highlighted >= 0 ? 4 : 10;
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Dots — dim non-highlighted
+    for (let i = 0; i < N; i++) {
+      const p = pt(i, (data[i].value / 100) * prog);
+      const isHl = i === highlighted;
+      const r = isHl ? sz * 0.022 : sz * 0.013;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = isHl ? data[i].color : (highlighted >= 0 ? data[i].color + '55' : data[i].color);
+      ctx.shadowColor = data[i].color;
+      ctx.shadowBlur = isHl ? 16 : (highlighted >= 0 ? 3 : 9);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    // Highlighted axis: glowing arm + pulse ring + value label
+    if (highlighted >= 0) {
+      const hi = highlighted;
+      const hp = pt(hi, (data[hi].value / 100) * prog);
+
+      // Glowing arm from center
+      ctx.beginPath();
+      ctx.moveTo(cx, cx);
+      ctx.lineTo(hp.x, hp.y);
+      ctx.strokeStyle = data[hi].color;
+      ctx.lineWidth = 1.5;
+      ctx.shadowColor = data[hi].color;
+      ctx.shadowBlur = 12;
+      ctx.setLineDash([4, 3]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.shadowBlur = 0;
+
+      // Pulse ring
+      const pulse = 0.5 + 0.5 * Math.sin(pulseT * 3);
+      const ringR = sz * 0.03 + pulse * sz * 0.018;
+      ctx.beginPath();
+      ctx.arc(hp.x, hp.y, ringR, 0, Math.PI * 2);
+      ctx.strokeStyle = data[hi].color;
+      ctx.globalAlpha = 0.3 * (1 - pulse * 0.6);
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      // Value label near dot
+      const angle = (hi / N) * Math.PI * 2 - Math.PI / 2;
+      const offX = Math.cos(angle) * sz * 0.07;
+      const offY = Math.sin(angle) * sz * 0.07;
+      ctx.font = `700 ${sz * 0.042}px 'JetBrains Mono', monospace`;
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.shadowColor = data[hi].color;
+      ctx.shadowBlur = 8;
+      ctx.fillText(data[hi].value + '%', hp.x + offX, hp.y + offY);
+      ctx.shadowBlur = 0;
+    }
+
+    // Labels
+    for (let i = 0; i < N; i++) {
+      const a  = (i / N) * Math.PI * 2 - Math.PI / 2;
+      const lx = cx + lR * Math.cos(a);
+      const ly = cx + lR * Math.sin(a);
+      ctx.textAlign    = Math.abs(Math.cos(a)) < 0.15 ? 'center' : Math.cos(a) > 0 ? 'left' : 'right';
+      ctx.textBaseline = Math.sin(a) < -0.6 ? 'bottom' : Math.sin(a) > 0.6 ? 'top' : 'middle';
+      ctx.font         = `${i === highlighted ? 700 : 600} ${i === highlighted ? sz * 0.032 : sz * 0.027}px Inter, sans-serif`;
+      ctx.fillStyle    = i === highlighted ? '#fff' : (highlighted >= 0 ? data[i].color + '66' : data[i].color);
+      if (i === highlighted) {
+        ctx.shadowColor = data[i].color;
+        ctx.shadowBlur = 10;
+      }
+      ctx.fillText(data[i].label, lx, ly);
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  function animate() {
+    progress = Math.min(progress + 0.022, 1);
+    draw(progress);
+    if (progress < 1) requestAnimationFrame(animate);
+  }
+
+  function pulseLoop() {
+    if (highlighted < 0) { pulseRaf = null; return; }
+    pulseT += 0.03;
+    draw(progress);
+    pulseRaf = requestAnimationFrame(pulseLoop);
+  }
+
+  // Public API
+  window.radarHighlight = function(idx) {
+    highlighted = idx;
+    // Update tooltip
+    const tooltip = document.getElementById('sm-radar-tooltip');
+    if (tooltip) {
+      if (idx >= 0) {
+        const hex = data[idx].color;
+        tooltip.innerHTML = `<strong style="color:${hex}">${data[idx].label}</strong> &mdash; <span style="color:${hex}">${data[idx].value}%</span> proficiency`;
+      } else {
+        tooltip.innerHTML = '&nbsp;';
+      }
+    }
+    // Update legend items
+    document.querySelectorAll('.sm-rl-item').forEach((el, i) => {
+      el.classList.toggle('sm-rl-active', i === idx);
+    });
+    // Start pulse loop
+    if (idx >= 0 && !pulseRaf) pulseLoop();
+    else if (idx < 0) draw(progress);
+  };
+
+  const io = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !started) {
+      started = true; setup(); animate(); io.disconnect();
+    }
+  }, { threshold: 0.3 });
+  io.observe(canvas);
+
+  let resizeT;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(() => { setup(); draw(progress); }, 150);
+  });
+}());
+
+
+// // ─── SKILLS MATRIX BARS ──────────────────────────────────────────────────
+(function () {
+  const cards = document.querySelectorAll('.sm-card');
+  if (!cards.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const bar = e.target.querySelector('.sm-bar');
+      const pct = e.target.dataset.smPct;
+      if (bar && pct) setTimeout(() => { bar.style.width = pct + '%'; }, 120);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.25 });
+
+  cards.forEach(c => {
+    io.observe(c);
+
+    // Mouse glow tracking
+    c.addEventListener('mousemove', e => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100).toFixed(1) + '%');
+      c.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100).toFixed(1) + '%');
+    });
+
+    // Radar interactivity
+    c.addEventListener('mouseenter', () => {
+      const idx = parseInt(c.dataset.skillIndex);
+      if (!isNaN(idx) && window.radarHighlight) window.radarHighlight(idx);
+      c.classList.add('sm-active');
+    });
+    c.addEventListener('mouseleave', () => {
+      if (window.radarHighlight) window.radarHighlight(-1);
+      c.classList.remove('sm-active');
+    });
+  });
+
+  // Legend items also trigger highlight
+  document.querySelectorAll('.sm-rl-item[data-skill-index]').forEach(el => {
+    const idx = parseInt(el.dataset.skillIndex);
+    el.addEventListener('mouseenter', () => {
+      if (window.radarHighlight) window.radarHighlight(idx);
+      // Also activate the matching card
+      cards.forEach(c => c.classList.toggle('sm-active', parseInt(c.dataset.skillIndex) === idx));
+    });
+    el.addEventListener('mouseleave', () => {
+      if (window.radarHighlight) window.radarHighlight(-1);
+      cards.forEach(c => c.classList.remove('sm-active'));
+    });
+  });
+}());
+
+
 // ─── SMOOTH ANCHOR SCROLL ──────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function (e) {

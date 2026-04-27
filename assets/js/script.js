@@ -20,7 +20,7 @@ const t = {
     'about.title': 'About <span class="accent">Me</span>',
     'about.p1': 'I\'m a Cybersecurity Engineer based in Morocco, currently working as a <strong class="accent">SecOps Engineer at Tessi</strong>, where I monitor and investigate security alerts across Network, SaaS, Email, and Endpoint vectors using SIEM, NDR, EDR, WAF, and IPS/IDS solutions.',
     'about.p2': 'I hold a State Engineer Diploma in Computer Security &amp; Cybersecurity from <strong class="accent">ENSA Oujda</strong> (2019–2024). My background spans offensive security (web pentesting, bug bounty), defensive security (SOC, incident response), and cloud security (DevSecOps, Kubernetes, AWS/Azure).',
-    'about.p3': 'I\'m passionate about the intersection of automation and security — from building secure CI/CD pipelines to developing custom Python tooling for SOC operations and threat intelligence.',
+    'about.p3': 'What drives me is the offensive/defensive duality, understanding attack techniques to build better defenses. From pentesting to incident response, I enjoy operating on both sides.',
     'about.loc.label': 'Location', 'about.loc.value': 'Oujda, Morocco',
     'about.email.label': 'Email', 'about.lang.label': 'Languages',
     'about.lang.value': 'Arabic (Native) · English (Advanced) · French (Advanced)',

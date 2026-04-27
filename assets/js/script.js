@@ -110,7 +110,7 @@ const t = {
     'about.title': 'À propos <span class="accent">de Moi</span>',
     'about.p1': 'Je suis Ingénieur Cybersécurité basé au Maroc, actuellement en poste en tant qu\'<strong class="accent">Ingénieur SecOps chez Tessi</strong>, où je surveille et investigate les alertes de sécurité (Réseau, SaaS, Email, Endpoint) via les solutions SIEM, NDR, EDR, WAF et IPS/IDS.',
     'about.p2': 'Je suis titulaire d\'un Diplôme d\'Ingénieur d\'État en Sécurité Informatique &amp; Cybersécurité de l\'<strong class="accent">ENSA Oujda</strong> (2019–2024). Mon profil couvre la sécurité offensive (pentest web, bug bounty), la sécurité défensive (SOC, réponse aux incidents) et la sécurité cloud (DevSecOps, Kubernetes, AWS/Azure).',
-    'about.p3': 'Ce qui m\'anime, c\'est la dualité offensif/défensif — comprendre les techniques d\'attaque pour construire de meilleures défenses. Du pentest à la réponse aux incidents, j\'aime opérer des deux côtés.',
+    'about.p3': 'Ce qui m\'anime, c\'est la dualité offensif/défensif, comprendre les techniques d\'attaque pour construire de meilleures défenses. Du pentest à la réponse aux incidents, j\'aime opérer des deux côtés.',
     'about.loc.label': 'Localisation', 'about.loc.value': 'Oujda, Maroc',
     'about.email.label': 'E-mail', 'about.lang.label': 'Langues',
     'about.lang.value': 'Arabe (Natif) · Anglais (Avancé) · Français (Avancé)',

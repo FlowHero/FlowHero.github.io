@@ -373,7 +373,7 @@ applyLang(currentLang);
   const ctx = canvas.getContext('2d');
 
   const data = [
-    { label: 'Offensive',  value: 87, color: '#ff4d6d' },
+    { label: 'Offensive',  value: 80, color: '#ff4d6d' },
     { label: 'Defensive',  value: 85, color: '#00d4ff' },
     { label: 'Cloud',      value: 66, color: '#8b5cf6' },
     { label: 'Scripting',  value: 76, color: '#00e676' },

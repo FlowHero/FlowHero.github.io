@@ -234,14 +234,14 @@ function applyLang(lang) {
     for (let x = 0; x < W; x += 42)
       for (let y = 0; y < H; y += 42) {
         ctx.beginPath(); ctx.arc(x, y, 0.7, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(0,212,255,0.04)'; ctx.fill();
+        ctx.fillStyle = 'rgba(96,165,250,0.035)'; ctx.fill();
       }
     for (const p of particles) {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(0,212,255,${p.a})`; ctx.fill();
+      ctx.fillStyle = `rgba(96,165,250,${p.a})`; ctx.fill();
     }
     for (let i = 0; i < particles.length; i++)
       for (let j = i+1; j < particles.length; j++) {
@@ -250,7 +250,7 @@ function applyLang(lang) {
         if (d < 110) {
           ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0,212,255,${0.06*(1-d/110)})`; ctx.lineWidth = 0.6; ctx.stroke();
+          ctx.strokeStyle = `rgba(96,165,250,${0.055*(1-d/110)})`; ctx.lineWidth = 0.6; ctx.stroke();
         }
       }
     raf = requestAnimationFrame(draw);
@@ -291,6 +291,22 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => applyLang(btn.dataset.lang));
 });
 applyLang(currentLang);
+
+
+// ─── THEME TOGGLE ──────────────────────────────────────────
+(function () {
+  const html   = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  const saved  = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', saved);
+
+  if (!toggle) return;
+  toggle.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+}());
 
 
 // ─── NAVBAR SCROLL ─────────────────────────────────────────
@@ -374,7 +390,7 @@ applyLang(currentLang);
 
   const data = [
     { label: 'Offensive',  value: 80, color: '#ff4d6d' },
-    { label: 'Defensive',  value: 85, color: '#00d4ff' },
+    { label: 'Defensive',  value: 85, color: '#60a5fa' },
     { label: 'Cloud',      value: 66, color: '#8b5cf6' },
     { label: 'Scripting',  value: 76, color: '#00e676' },
     { label: 'Tools',      value: 83, color: '#fbbf24' },

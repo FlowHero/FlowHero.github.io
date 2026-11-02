@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,16 +38,16 @@
       .sm-layout .skills-matrix { grid-template-columns: 1fr !important; }
     }
     .sm-radar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
-    .sm-radar-title { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.1em; }
-    .sm-radar-hint { font-size: 0.62rem; color: #4a5568; opacity: 0.5; font-style: italic; }
-    .sm-radar-tooltip { text-align: center; min-height: 1.5rem; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #94a3b8; line-height: 1.5rem; }
+    .sm-radar-title { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .sm-radar-hint { font-size: 0.62rem; color: var(--muted); opacity: 0.5; font-style: italic; }
+    .sm-radar-tooltip { text-align: center; min-height: 1.5rem; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); line-height: 1.5rem; }
     .sm-rl-item { cursor: pointer; border-radius: 0.4rem; padding: 0.18rem 0.3rem; transition: background 0.2s, color 0.2s; user-select: none; }
-    .sm-rl-item:hover, .sm-rl-item.sm-rl-active { color: #e2e8f0; background: rgba(255,255,255,0.04); }
+    .sm-rl-item:hover, .sm-rl-item.sm-rl-active { color: var(--text); background: var(--cyan-10); }
     .sm-rl-item i { transition: transform 0.2s; }
     .sm-rl-item.sm-rl-active i { transform: scale(1.5); }
-    .sm-card.sm-active { border-color: color-mix(in srgb, var(--sm-color) 55%, transparent) !important; transform: translateY(-4px) !important; box-shadow: 0 0 28px color-mix(in srgb, var(--sm-color) 18%, transparent), 0 8px 24px rgba(0,0,0,0.4); }
-    .sm-card.sm-active .sm-glow-bg { opacity: 0.5; }
-    .sm-card.sm-active .sm-icon { box-shadow: 0 0 20px var(--sm-glow); transform: scale(1.08); }
+    .sm-card.sm-active { border-color: color-mix(in srgb, var(--sm-color) 55%, transparent) !important; transform: translateY(-4px) !important; box-shadow: 0 0 24px color-mix(in srgb, var(--sm-color) 14%, transparent), 0 8px 24px rgba(0,0,0,0.3); }
+    .sm-card.sm-active .sm-glow-bg { opacity: 0.4; }
+    .sm-card.sm-active .sm-icon { box-shadow: 0 0 16px var(--sm-glow); transform: scale(1.08); }
   </style>
 </head>
 <body>
@@ -73,6 +73,12 @@
           <span class="lang-sep">/</span>
           <button class="lang-btn" data-lang="fr">FR</button>
         </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <!-- Sun: shown in dark mode (click → light) -->
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <!-- Moon: shown in light mode (click → dark) -->
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
           <span></span><span></span><span></span>
         </button>
@@ -138,6 +144,7 @@
   <!-- ======= ABOUT ======= -->
   <section id="about" class="section">
     <div class="container">
+      <span class="section-label">01 / about.md</span>
       <h2 class="section-title" data-i18n="about.title">About <span class="accent">Me</span></h2>
       <div class="about-grid">
 
@@ -185,6 +192,7 @@
   <!-- ======= SKILLS ======= -->
   <section id="skills" class="section section-alt">
     <div class="container">
+      <span class="section-label">02 / skills.json</span>
       <h2 class="section-title" data-i18n="skills.title">Technical <span class="accent">Skills</span></h2>
 
       <!-- ── Skills Layout: Radar + Matrix ──────────────── -->
@@ -196,7 +204,7 @@
           <div class="sm-radar-tooltip" id="sm-radar-tooltip">&nbsp;</div>
           <div class="sm-radar-legend">
             <span class="sm-rl-item" data-skill-index="0"><i style="background:#ff4d6d;box-shadow:0 0 5px #ff4d6d80"></i>Offensive Sec</span>
-            <span class="sm-rl-item" data-skill-index="1"><i style="background:#00d4ff;box-shadow:0 0 5px #00d4ff80"></i>Defensive / SOC</span>
+            <span class="sm-rl-item" data-skill-index="1"><i style="background:#60a5fa;box-shadow:0 0 5px #60a5fa80"></i>Defensive / SOC</span>
             <span class="sm-rl-item" data-skill-index="2"><i style="background:#8b5cf6;box-shadow:0 0 5px #8b5cf680"></i>Cloud &amp; DevSec</span>
             <span class="sm-rl-item" data-skill-index="3"><i style="background:#00e676;box-shadow:0 0 5px #00e67680"></i>Programming</span>
             <span class="sm-rl-item" data-skill-index="4"><i style="background:#fbbf24;box-shadow:0 0 5px #fbbf2480"></i>Security Tools</span>
@@ -231,7 +239,7 @@
             </div>
           </div>
 
-          <div class="sm-card reveal" data-sm-pct="85" data-skill-index="1" style="--sm-color:#00d4ff;--sm-glow:rgba(0,212,255,0.4);">
+          <div class="sm-card reveal" data-sm-pct="85" data-skill-index="1" style="--sm-color:#60a5fa;--sm-glow:rgba(96,165,250,0.35);">
             <div class="sm-glow-bg"></div>
             <div class="sm-inner">
               <div class="sm-header">
@@ -360,6 +368,7 @@
   <!-- ======= EXPERIENCE ======= -->
   <section id="experience" class="section">
     <div class="container">
+      <span class="section-label">03 / experience.log</span>
       <h2 class="section-title" data-i18n="exp.title">Work <span class="accent">Experience</span></h2>
       <div class="timeline">
 
@@ -464,6 +473,7 @@
   <!-- ======= EDUCATION ======= -->
   <section id="education" class="section section-alt">
     <div class="container">
+      <span class="section-label">04 / education.txt</span>
       <h2 class="section-title" data-i18n="edu.title">Education</h2>
       <div class="edu-card reveal">
         <div class="edu-icon-wrap">
@@ -501,6 +511,7 @@
   <!-- ======= PROJECTS ======= -->
   <section id="projects" class="section">
     <div class="container">
+      <span class="section-label">05 / projects.sh</span>
       <h2 class="section-title" data-i18n="proj.title">Recent <span class="accent">Projects</span></h2>
       <div class="projects-grid">
 
@@ -590,6 +601,7 @@
   <!-- ======= CERTIFICATIONS ======= -->
   <section id="certifications" class="section section-alt">
     <div class="container">
+      <span class="section-label">06 / certs.md</span>
       <h2 class="section-title" data-i18n="cert.title">Achievements &amp; <span class="accent">Certifications</span></h2>
       <div class="certs-grid">
 
@@ -666,6 +678,7 @@
   <!-- ======= CONTACT ======= -->
   <section id="contact" class="section">
     <div class="container">
+      <span class="section-label">07 / contact.init</span>
       <h2 class="section-title" data-i18n="contact.title">Get In <span class="accent">Touch</span></h2>
       <div class="contact-wrapper">
         <p class="contact-intro reveal" data-i18n="contact.intro">

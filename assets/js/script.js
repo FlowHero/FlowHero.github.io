@@ -234,14 +234,14 @@ function applyLang(lang) {
     for (let x = 0; x < W; x += 42)
       for (let y = 0; y < H; y += 42) {
         ctx.beginPath(); ctx.arc(x, y, 0.7, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(232,25,79,0.035)'; ctx.fill();
+        ctx.fillStyle = 'rgba(96,165,250,0.035)'; ctx.fill();
       }
     for (const p of particles) {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(232,25,79,${p.a})`; ctx.fill();
+      ctx.fillStyle = `rgba(96,165,250,${p.a})`; ctx.fill();
     }
     for (let i = 0; i < particles.length; i++)
       for (let j = i+1; j < particles.length; j++) {
@@ -250,7 +250,7 @@ function applyLang(lang) {
         if (d < 110) {
           ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(232,25,79,${0.055*(1-d/110)})`; ctx.lineWidth = 0.6; ctx.stroke();
+          ctx.strokeStyle = `rgba(96,165,250,${0.055*(1-d/110)})`; ctx.lineWidth = 0.6; ctx.stroke();
         }
       }
     raf = requestAnimationFrame(draw);
@@ -390,7 +390,7 @@ applyLang(currentLang);
 
   const data = [
     { label: 'Offensive',  value: 80, color: '#ff4d6d' },
-    { label: 'Defensive',  value: 85, color: '#38bdf8' },
+    { label: 'Defensive',  value: 85, color: '#60a5fa' },
     { label: 'Cloud',      value: 66, color: '#8b5cf6' },
     { label: 'Scripting',  value: 76, color: '#00e676' },
     { label: 'Tools',      value: 83, color: '#fbbf24' },
@@ -456,14 +456,14 @@ applyLang(currentLang);
     ctx.closePath();
     const g = ctx.createRadialGradient(cx, cx, 0, cx, cx, R);
     const alpha = highlighted >= 0 ? 0.13 : 0.28;
-    g.addColorStop(0,   `rgba(232,25,79,${alpha})`);
-    g.addColorStop(0.6, `rgba(232,25,79,${alpha * 0.5})`);
-    g.addColorStop(1,   'rgba(232,25,79,0.02)');
+    g.addColorStop(0,   `rgba(0,212,255,${alpha})`);
+    g.addColorStop(0.6, `rgba(139,92,246,${alpha * 0.5})`);
+    g.addColorStop(1,   'rgba(0,212,255,0.02)');
     ctx.fillStyle = g;
     ctx.fill();
-    ctx.strokeStyle = highlighted >= 0 ? 'rgba(232,25,79,0.3)' : 'rgba(232,25,79,0.8)';
+    ctx.strokeStyle = highlighted >= 0 ? 'rgba(0,212,255,0.3)' : 'rgba(0,212,255,0.8)';
     ctx.lineWidth = 1.5;
-    ctx.shadowColor = '#e8194f';
+    ctx.shadowColor = '#00d4ff';
     ctx.shadowBlur = highlighted >= 0 ? 4 : 10;
     ctx.stroke();
     ctx.shadowBlur = 0;

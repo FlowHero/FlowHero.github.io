@@ -2,27 +2,19 @@ import type { IconType } from 'react-icons';
 import {
   SiArgo,
   SiBurpsuite,
-  SiC,
   SiClaude,
   SiDocker,
   SiElastic,
   SiFortinet,
   SiGitlab,
   SiGnubash,
-  SiGrafana,
-  SiHackthebox,
   SiJenkins,
   SiKubernetes,
   SiLinux,
   SiMetasploit,
-  SiPrometheus,
   SiPython,
-  SiSonarqubeserver,
   SiSplunk,
   SiTerraform,
-  SiTrivy,
-  SiTryhackme,
-  SiVault,
   SiWireshark,
   SiZap,
 } from 'react-icons/si';
@@ -42,9 +34,8 @@ type Tool =
 
 /**
  * Brand mark and colour per tool. Colours are the Simple Icons brand hexes,
- * except where the brand is near-black or deep navy (TryHackMe, Vault's
- * black variant, Trivy), which would vanish on the dark tiles — those are
- * lifted to a lighter tint of the same hue.
+ * except where the brand is near-black or deep navy, which would vanish on
+ * the dark tiles — those are lifted to a lighter tint of the same hue.
  */
 const tools: Record<ToolName, Tool> = {
   'Burp Suite': { Icon: SiBurpsuite, color: '#FF6633', url: 'https://portswigger.net/burp' },
@@ -53,13 +44,9 @@ const tools: Record<ToolName, Tool> = {
   Wireshark: { Icon: SiWireshark, color: '#2f8fd4', url: 'https://www.wireshark.org' },
   sqlmap: { cli: true, url: 'https://sqlmap.org' },
   'OWASP ZAP': { Icon: SiZap, color: '#4d9fff', url: 'https://www.zaproxy.org' },
-  nuclei: { cli: true, url: 'https://github.com/projectdiscovery/nuclei' },
-  'Hack The Box': { Icon: SiHackthebox, color: '#9FEF00', url: 'https://www.hackthebox.com' },
-  TryHackMe: { Icon: SiTryhackme, color: '#E8EAF0', url: 'https://tryhackme.com' },
   Python: { Icon: SiPython, color: '#4B8BBE', url: 'https://www.python.org' },
   Bash: { Icon: SiGnubash, color: '#4EAA25', url: 'https://www.gnu.org/software/bash/' },
   PowerShell: { Icon: TbBrandPowershell, color: '#5391FE', url: 'https://learn.microsoft.com/powershell/' },
-  C: { Icon: SiC, color: '#A8B9CC', url: 'https://en.cppreference.com/w/c' },
   Linux: { Icon: SiLinux, color: '#FCC624', url: 'https://www.kernel.org' },
   Docker: { Icon: SiDocker, color: '#2496ED', url: 'https://www.docker.com' },
   Kubernetes: { Icon: SiKubernetes, color: '#326CE5', url: 'https://kubernetes.io' },
@@ -68,12 +55,6 @@ const tools: Record<ToolName, Tool> = {
   Terraform: { Icon: SiTerraform, color: '#844FBA', url: 'https://www.terraform.io' },
   Jenkins: { Icon: SiJenkins, color: '#D24939', url: 'https://www.jenkins.io' },
   'Argo CD': { Icon: SiArgo, color: '#EF7B4D', url: 'https://argo-cd.readthedocs.io' },
-  Trivy: { Icon: SiTrivy, color: '#4f7dff', url: 'https://trivy.dev' },
-  SonarQube: { Icon: SiSonarqubeserver, color: '#4E9BCD', url: 'https://www.sonarsource.com/products/sonarqube/' },
-  Vault: { Icon: SiVault, color: '#FFEC6E', url: 'https://www.vaultproject.io' },
-  gitleaks: { cli: true, url: 'https://github.com/gitleaks/gitleaks' },
-  Prometheus: { Icon: SiPrometheus, color: '#E6522C', url: 'https://prometheus.io' },
-  Grafana: { Icon: SiGrafana, color: '#F46800', url: 'https://grafana.com' },
   Elastic: { Icon: SiElastic, color: '#00BFB3', url: 'https://www.elastic.co' },
   GitLab: { Icon: SiGitlab, color: '#FC6D26', url: 'https://about.gitlab.com' },
   // Splunk's mark is black in Simple Icons; this is its classic brand green.
@@ -107,7 +88,7 @@ export default function ToolTile({ name }: { name: ToolName }) {
           // inline-flex box on a 64px line, so in-flow text would hand the
           // tile a text baseline and drop it ~12px below the logo tiles,
           // which have none. Mono at a size that fits the longest name
-          // ("gitleaks") in the tile without clipping.
+          // ("sqlmap") in the tile without clipping.
           <span
             aria-hidden
             className="absolute inset-0 flex flex-col items-start justify-center gap-1 px-3 font-mono leading-none"

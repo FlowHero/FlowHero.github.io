@@ -76,11 +76,10 @@ export const socials = [
  * Command-line tools without a logo render as a terminal tile instead.
  */
 export const arsenal = [
-  'Burp Suite', 'Metasploit', 'nmap', 'Wireshark', 'sqlmap', 'OWASP ZAP', 'nuclei',
-  'Hack The Box', 'TryHackMe', 'Python', 'Bash', 'PowerShell', 'C', 'Linux',
+  'Burp Suite', 'Metasploit', 'nmap', 'Wireshark', 'sqlmap', 'OWASP ZAP',
+  'Python', 'Bash', 'PowerShell', 'Linux',
   'Docker', 'Kubernetes', 'AWS', 'Azure', 'Terraform', 'Jenkins', 'Argo CD',
-  'Trivy', 'SonarQube', 'Vault', 'gitleaks', 'Prometheus', 'Grafana', 'Elastic', 'GitLab',
-  'Splunk', 'FortiAnalyzer', 'Check Point', 'Sophos', 'Claude',
+  'Elastic', 'GitLab', 'Splunk', 'FortiAnalyzer', 'Check Point', 'Sophos', 'Claude',
 ] as const;
 
 export type SkillDomain = {

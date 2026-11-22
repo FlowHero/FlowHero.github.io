@@ -3,9 +3,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import seoFallback from './vite/seo-fallback.ts'
+import blog from './vite/blog/plugin.ts'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), seoFallback()],
+  plugins: [react(), tailwindcss(), seoFallback(), blog()],
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, './src'),

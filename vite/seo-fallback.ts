@@ -1,7 +1,6 @@
 import type { Plugin } from 'vite';
 import {
   arsenal,
-  blogPosts,
   certifications,
   contact,
   learning,
@@ -13,6 +12,7 @@ import {
   ui,
 } from '../src/data/content.ts';
 import { tx, type Text } from '../src/i18n/text.ts';
+import { loadPosts } from './blog/posts.ts';
 
 /** Crawlers get the English copy — the language the page is declared in. */
 const en = (text: Text) => tx(text, 'en');
@@ -29,7 +29,7 @@ const prose = (s: string) => escape(s.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\
 
 const list = (items: readonly string[]) => `<ul>${items.map(i => `<li>${escape(i)}</li>`).join('')}</ul>`;
 
-function fallback() {
+function fallback(root: string) {
   const entries = (kind: 'experience' | 'education') =>
     timeline
       .filter(e => e.kind === kind)
@@ -69,11 +69,11 @@ function fallback() {
     )
     .join('');
 
-  const posts = blogPosts
+  const posts = loadPosts(root)
     .map(
       b => `<li>
-        <h3><a href="${escape(b.url)}">${escape(en(b.title))}</a></h3>
-        <p>${escape(b.date)} · ${prose(en(b.excerpt))}</p>
+        <h3><a href="${escape(b.url)}">${escape(b.title)}</a></h3>
+        <p>${escape(b.date)} · ${prose(b.summary)}</p>
       </li>`
     )
     .join('');
@@ -153,12 +153,16 @@ function fallback() {
  * Build only — in dev the empty #root keeps HMR honest.
  */
 export default function seoFallback(): Plugin {
+  let root = process.cwd();
   return {
     name: 'seo-fallback',
     apply: 'build',
+    configResolved: config => {
+      root = config.root;
+    },
     transformIndexHtml: {
       order: 'post',
-      handler: html => html.replace('<div id="root"></div>', `<div id="root">${fallback()}</div>`),
+      handler: html => html.replace('<div id="root"></div>', `<div id="root">${fallback(root)}</div>`),
     },
   };
 }

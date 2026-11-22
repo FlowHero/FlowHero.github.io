@@ -1,4 +1,7 @@
 @import 'tailwindcss';
+/* The blog's static pages are templated in vite/blog/ — scan them too, so
+   the classes they use are generated even though no component renders them. */
+@source '../vite/blog';
 
 /* ---------------------------------------------------------------
    Design tokens
@@ -547,3 +550,255 @@
     background: color-mix(in oklab, var(--color-signal-glow) 45%, transparent);
   }
 }
+
+/* ---------------------------------------------------------------
+   Blog posts (/blog/<slug>/)
+   The article body is rendered from Markdown at build time, so it is bare
+   HTML with no classes: everything is styled from .post-body down.
+   --------------------------------------------------------------- */
+.post-body {
+  color: var(--color-mist-300);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+.post-body > * + * {
+  margin-top: 1.25em;
+}
+.post-body :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+  /* Clear the sticky site header when jumped to from the table of contents. */
+  scroll-margin-top: 5.5rem;
+}
+.post-body h1,
+.post-body h2 {
+  margin-top: 2.4em;
+  padding-bottom: 0.45em;
+  font-size: 1.65rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-mist-100) 8%, transparent);
+}
+.post-body h3 {
+  margin-top: 2em;
+  font-size: 1.3rem;
+  color: var(--color-mist-100);
+}
+.post-body :is(h4, h5, h6) {
+  margin-top: 1.8em;
+  font-size: 1.08rem;
+  color: var(--color-mist-100);
+}
+.post-body > :first-child {
+  margin-top: 0;
+}
+.post-body strong {
+  color: var(--color-mist-100);
+  font-weight: 600;
+}
+.post-body em {
+  color: var(--color-mist-100);
+}
+.post-body a {
+  color: var(--color-signal-glow);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--color-signal-glow) 35%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.post-body a:hover {
+  text-decoration-color: currentColor;
+}
+.post-body :is(ul, ol) {
+  padding-left: 1.4em;
+}
+.post-body ul {
+  list-style: disc;
+}
+.post-body ol {
+  list-style: decimal;
+}
+.post-body li + li,
+.post-body li > :is(ul, ol) {
+  margin-top: 0.4em;
+}
+.post-body li::marker {
+  color: color-mix(in oklab, var(--color-signal-glow) 70%, transparent);
+}
+.post-body hr {
+  margin-block: 2.5em;
+  border: 0;
+  border-top: 1px solid color-mix(in oklab, var(--color-mist-100) 10%, transparent);
+}
+.post-body blockquote {
+  padding: 0.2em 0 0.2em 1.1em;
+  border-left: 3px solid color-mix(in oklab, var(--color-cyan-glow) 60%, transparent);
+  color: var(--color-mist-300);
+  font-style: italic;
+}
+.post-body blockquote > * + * {
+  margin-top: 0.8em;
+}
+.post-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--color-mist-100) 8%, transparent);
+}
+/* Inline code; fenced blocks are .post-code and reset this below. */
+.post-body :not(pre) > code {
+  padding: 0.12em 0.4em;
+  border-radius: 0.35rem;
+  border: 1px solid color-mix(in oklab, var(--color-mist-100) 9%, transparent);
+  background: var(--color-ink-800);
+  color: #7dffc8;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+.post-body .post-table {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--color-mist-100) 8%, transparent);
+}
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+.post-body :is(th, td) {
+  padding: 0.65em 0.9em;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-mist-100) 7%, transparent);
+}
+.post-body th {
+  color: var(--color-mist-100);
+  background: var(--color-ink-850);
+  font-weight: 600;
+}
+.post-body tr:last-child td {
+  border-bottom: 0;
+}
+/* Image-only header rows (the posts use empty tables as side-by-side image
+   grids) collapse rather than leaving an empty bar. */
+.post-body th:empty {
+  padding: 0;
+}
+.post-body td img {
+  border: 0;
+  border-radius: 0.4rem;
+}
+
+/* Fenced code: language label + copy button over a Shiki-highlighted block. */
+.post-code {
+  overflow: hidden;
+  border-radius: 0.85rem;
+  border: 1px solid color-mix(in oklab, var(--color-mist-100) 8%, transparent);
+  background: var(--color-ink-900);
+}
+.post-code figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.6rem 0.45rem 1rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-mist-100) 6%, transparent);
+  background: var(--color-ink-850);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-mist-500);
+}
+.post-copy {
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid transparent;
+  color: var(--color-mist-300);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.post-copy:hover {
+  color: #fff;
+  border-color: color-mix(in oklab, var(--color-mist-100) 14%, transparent);
+}
+.post-copy.is-done {
+  color: var(--color-signal-glow);
+}
+.post-code pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  /* Shiki writes the theme's own background inline; use the card's. */
+  background: transparent !important;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.7;
+  tab-size: 2;
+}
+.post-code pre code {
+  font-family: inherit;
+}
+
+/* Obsidian admonitions (```ad-note and friends). */
+.post-callout {
+  --tone: var(--color-cyan-glow);
+  padding: 1rem 1.2rem;
+  border-radius: 0.85rem;
+  border: 1px solid color-mix(in oklab, var(--tone) 30%, transparent);
+  border-left-width: 3px;
+  background: color-mix(in oklab, var(--tone) 6%, transparent);
+}
+.post-callout--success {
+  --tone: var(--color-signal-glow);
+}
+.post-callout--warning {
+  --tone: #fbbf24;
+}
+.post-callout--danger {
+  --tone: var(--color-threat);
+}
+.post-callout > * + * {
+  margin-top: 0.75em;
+}
+.post-callout__title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tone);
+}
+
+/* Table of contents, sticky beside the article on wide screens. */
+.post-toc ol {
+  border-left: 1px solid color-mix(in oklab, var(--color-mist-100) 8%, transparent);
+}
+.post-toc li a {
+  display: block;
+  margin-left: -1px;
+  padding: 0.3rem 0 0.3rem 0.9rem;
+  border-left: 1px solid transparent;
+  color: var(--color-mist-500);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.post-toc li.is-sub a {
+  padding-left: 1.7rem;
+  font-size: 0.76rem;
+}
+.post-toc li a:hover {
+  color: var(--color-mist-100);
+  border-left-color: var(--color-signal-glow);
+}
+

@@ -1,12 +1,17 @@
 import AnimatedContent from '@/components/AnimatedContent';
 import GradientHeading from '@/components/layout/GradientHeading';
-import { blogPosts, blogUrl, ui, type BlogPost } from '@/data/content';
+import posts from 'virtual:blog-posts';
+import type { PostMeta } from '@/data/blog';
+import { blogUrl, ui } from '@/data/content';
 import useLang from '@/i18n/useLang';
 import { asset } from '@/lib/asset';
 
+/** Five fill the grid exactly; anything older is one click away on /blog/. */
+const SHOWN = 5;
+
 /**
- * Write-ups from the Hugo blog. Each card is a plain link out to the post —
- * the posts live (and keep their URLs) on /newblog/, this is the shop window.
+ * The latest write-ups. The posts are Markdown in content/posts/, built into
+ * static pages under /blog/ (vite/blog/) — this is just the shop window.
  *
  * Five posts in three columns would strand two on the last row, so the newest
  * spans two columns from lg and lies on its side: 2 + 1, then 3.
@@ -22,7 +27,7 @@ export default function Blog() {
         </GradientHeading>
 
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post, i) => (
+          {posts.slice(0, SHOWN).map((post, i) => (
             <li key={post.url} className={`h-full ${i === 0 ? 'sm:col-span-2' : ''}`}>
               <AnimatedContent distance={40} duration={0.8} delay={(i % 3) * 0.08} threshold={0.1} className="h-full">
                 <PostCard post={post} featured={i === 0} />
@@ -33,9 +38,7 @@ export default function Blog() {
 
         <div className="mt-10 flex justify-center">
           <a
-            href={blogUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={asset(blogUrl)}
             className="group inline-flex items-center gap-2 rounded-full border border-white/[0.12] px-5 py-2.5 font-mono text-xs tracking-[0.12em] text-mist-300 uppercase transition-colors duration-300 hover:border-signal-glow/50 hover:text-signal-glow"
           >
             {t(ui.blog.all)}
@@ -47,9 +50,10 @@ export default function Blog() {
   );
 }
 
-function PostCard({ post, featured }: { post: BlogPost; featured: boolean }) {
+function PostCard({ post, featured }: { post: PostMeta; featured: boolean }) {
   const { t, lang } = useLang();
-  const title = t(post.title);
+  const title = lang === 'fr' && post.titleFr ? post.titleFr : post.title;
+  const summary = lang === 'fr' && post.summaryFr ? post.summaryFr : post.summary;
   const date = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
     year: 'numeric',
     month: 'short',
@@ -59,9 +63,7 @@ function PostCard({ post, featured }: { post: BlogPost; featured: boolean }) {
 
   return (
     <a
-      href={post.url}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={asset(post.url)}
       className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-900/70 backdrop-blur-sm transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-signal-glow/35 ${
         featured ? 'sm:flex-row' : ''
       }`}
@@ -72,7 +74,7 @@ function PostCard({ post, featured }: { post: BlogPost; featured: boolean }) {
         }`}
       >
         <img
-          src={asset(post.image)}
+          src={post.image ? asset(post.image) : undefined}
           alt=""
           loading="lazy"
           decoding="async"
@@ -93,7 +95,7 @@ function PostCard({ post, featured }: { post: BlogPost; featured: boolean }) {
         >
           {title}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-mist-300/80">{t(post.excerpt)}</p>
+        <p className="mt-3 text-sm leading-relaxed text-mist-300/80">{summary}</p>
 
         <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Tags">
           {post.tags.map(tag => (

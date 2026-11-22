@@ -80,6 +80,7 @@ export const arsenal = [
   'Hack The Box', 'TryHackMe', 'Python', 'Bash', 'PowerShell', 'C', 'Linux',
   'Docker', 'Kubernetes', 'AWS', 'Azure', 'Terraform', 'Jenkins', 'Argo CD',
   'Trivy', 'SonarQube', 'Vault', 'gitleaks', 'Prometheus', 'Grafana', 'Elastic', 'GitLab',
+  'Splunk', 'FortiAnalyzer', 'Check Point', 'Sophos', 'Claude',
 ] as const;
 
 export type SkillDomain = {

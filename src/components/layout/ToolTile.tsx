@@ -3,8 +3,10 @@ import {
   SiArgo,
   SiBurpsuite,
   SiC,
+  SiClaude,
   SiDocker,
   SiElastic,
+  SiFortinet,
   SiGitlab,
   SiGnubash,
   SiGrafana,
@@ -16,6 +18,7 @@ import {
   SiPrometheus,
   SiPython,
   SiSonarqubeserver,
+  SiSplunk,
   SiTerraform,
   SiTrivy,
   SiTryhackme,
@@ -33,7 +36,9 @@ type ToolName = (typeof arsenal)[number];
 type Tool =
   | { Icon: IconType; color: string; url: string }
   /** A command-line tool with no logo: drawn as a prompt in a terminal tile. */
-  | { cli: true; url: string };
+  | { cli: true; url: string }
+  /** A product with no mark in the icon sets: its name, set in brand colour. */
+  | { word: string; color: string; url: string };
 
 /**
  * Brand mark and colour per tool. Colours are the Simple Icons brand hexes,
@@ -71,6 +76,14 @@ const tools: Record<ToolName, Tool> = {
   Grafana: { Icon: SiGrafana, color: '#F46800', url: 'https://grafana.com' },
   Elastic: { Icon: SiElastic, color: '#00BFB3', url: 'https://www.elastic.co' },
   GitLab: { Icon: SiGitlab, color: '#FC6D26', url: 'https://about.gitlab.com' },
+  // Splunk's mark is black in Simple Icons; this is its classic brand green.
+  Splunk: { Icon: SiSplunk, color: '#65A637', url: 'https://www.splunk.com' },
+  // A Fortinet product, so it wears the Fortinet mark.
+  FortiAnalyzer: { Icon: SiFortinet, color: '#EE3124', url: 'https://www.fortinet.com/products/management/fortianalyzer' },
+  // Neither has a mark in Simple Icons or Tabler.
+  'Check Point': { word: 'Check\nPoint', color: '#F0479B', url: 'https://www.checkpoint.com' },
+  Sophos: { word: 'SOPHOS', color: '#5B8CFF', url: 'https://www.sophos.com' },
+  Claude: { Icon: SiClaude, color: '#D97757', url: 'https://claude.ai' },
 };
 
 /**
@@ -101,6 +114,15 @@ export default function ToolTile({ name }: { name: ToolName }) {
           >
             <span className="text-[10px] text-signal-glow/70">&gt;_</span>
             <span className="text-[10.5px] font-medium tracking-tight text-signal-glow">{name}</span>
+          </span>
+        ) : 'word' in tool ? (
+          // Absolutely positioned for the same baseline reason as the CLI tile.
+          <span
+            aria-hidden
+            className="absolute inset-0 flex items-center justify-center px-1.5 text-center font-display text-[12px] leading-[1.05] font-bold tracking-tight whitespace-pre-line"
+            style={{ color: tool.color }}
+          >
+            {tool.word}
           </span>
         ) : (
           <tool.Icon aria-hidden className="h-full w-full" style={{ color: tool.color }} />

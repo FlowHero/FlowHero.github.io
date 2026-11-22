@@ -363,11 +363,15 @@
   --pc-top: 8.6rem;
   --pc-bar: 6.4rem;
   --pc-room: calc(100% - var(--pc-top) - var(--pc-bar));
-  --pc-h: min(calc(var(--pc-room) / 0.82), 31rem);
+  --pc-h0: min(calc(var(--pc-room) / 0.82), 31rem);
+  /* Zoomed out a touch from the full-window size. The extra (h0 - h) on `top`
+     keeps the bottom edge where the full-size photo had it, tucked behind the
+     user-info bar, so the shoulders don't stop short in mid-card. */
+  --pc-h: calc(0.88 * var(--pc-h0));
   width: auto !important;
   max-width: none !important;
   height: var(--pc-h) !important;
-  top: calc(var(--pc-top) + (var(--pc-room) - 0.82 * var(--pc-h)) / 2) !important;
+  top: calc(var(--pc-top) + (var(--pc-room) - 0.82 * var(--pc-h0)) / 2 + var(--pc-h0) - var(--pc-h)) !important;
   bottom: auto !important;
 }
 

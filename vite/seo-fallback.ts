@@ -1,6 +1,7 @@
 import type { Plugin } from 'vite';
 import {
   arsenal,
+  blogPosts,
   certifications,
   contact,
   learning,
@@ -68,6 +69,15 @@ function fallback() {
     )
     .join('');
 
+  const posts = blogPosts
+    .map(
+      b => `<li>
+        <h3><a href="${escape(b.url)}">${escape(en(b.title))}</a></h3>
+        <p>${escape(b.date)} · ${prose(en(b.excerpt))}</p>
+      </li>`
+    )
+    .join('');
+
   const links = [
     `<li><a href="mailto:${escape(profile.email)}">${escape(profile.email)}</a></li>`,
     `<li><a href="${escape(profile.cv)}">CV (PDF)</a></li>`,
@@ -117,6 +127,9 @@ function fallback() {
 
     <h2>${escape(ui.certs.title.en)}</h2>
     <ul>${certs}</ul>
+
+    <h2>${escape(ui.blog.title.en)}</h2>
+    <ul>${posts}</ul>
 
     <h2>${escape(ui.contact.title.en)}</h2>
     <p>${prose(contact.intro.en)}</p>

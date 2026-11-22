@@ -457,6 +457,81 @@ export const certifications: Certification[] = [
   },
 ];
 
+export type BlogPost = {
+  title: Text;
+  /** One or two sentences: the post's front-matter description. */
+  excerpt: Text;
+  /** ISO date the post was published. */
+  date: string;
+  /** Thumbnail, a path under public/. */
+  image: string;
+  /** The post on the Hugo blog. */
+  url: string;
+  tags: readonly string[];
+};
+
+/** Base of the Hugo blog (github.com/FlowHero/newblog). */
+export const blogUrl = 'https://flowhero.github.io/newblog/';
+
+/** Write-ups from the blog, newest first. Add a post here when it goes live. */
+export const blogPosts: BlogPost[] = [
+  {
+    title: { en: 'Certified Kubernetes Security — Chapter 1 Notes', fr: 'Certified Kubernetes Security — Notes du Chapitre 1' },
+    excerpt: {
+      en: 'Cluster Setup from the CKS exam: network policies, CIS benchmarks with kube-bench, Ingress with TLS, locking down cluster components and verifying platform binaries.',
+      fr: 'Le domaine Cluster Setup de l’examen CKS : network policies, benchmarks CIS avec kube-bench, Ingress avec TLS, sécurisation des composants du cluster et vérification des binaires.',
+    },
+    date: '2024-08-23',
+    image: '/assets/images/kubesec.png',
+    url: `${blogUrl}posts/cks/`,
+    tags: ['Kubernetes', 'CKS', 'Cloud Security'],
+  },
+  {
+    title: 'Fuzzing APIs',
+    excerpt: {
+      en: 'A deep dive into API fuzzing with Postman, Burp and Wfuzz: fuzzing wide and deep, finding improper assets management and bypassing input sanitization.',
+      fr: 'Plongée dans le fuzzing d’API avec Postman, Burp et Wfuzz : fuzzing large et profond, gestion inappropriée des assets et contournement de la sanitisation des entrées.',
+    },
+    date: '2023-08-22',
+    image: '/assets/images/apifuzzing.png',
+    url: `${blogUrl}posts/fuzzing-apis/`,
+    tags: ['API', 'Fuzzing', 'Burp Suite'],
+  },
+  {
+    title: { en: 'JWT Attacks Cheat Sheet', fr: 'Cheat Sheet des Attaques JWT' },
+    excerpt: {
+      en: 'The most common JSON Web Token attacks: exposed JWKS, signature bypasses, weak secrets, key confusion, and the tooling to test each one.',
+      fr: 'Les attaques JSON Web Token les plus courantes : JWKS exposés, contournement de signature, secrets faibles, confusion de clés, et les outils pour tester chacune.',
+    },
+    date: '2023-08-13',
+    image: '/assets/images/jwts.png',
+    url: `${blogUrl}posts/jwts-attacks/`,
+    tags: ['JWT', 'Web', 'Auth'],
+  },
+  {
+    title: { en: 'Bypassing WAFs', fr: 'Contourner les WAF' },
+    excerpt: {
+      en: 'Blocked by the web server you are testing? How WAFs detect you, and the techniques to get past them during bug hunting and pentests.',
+      fr: 'Bloqué par le serveur que vous testez ? Comment les WAF vous détectent, et les techniques pour les contourner en bug hunting et en pentest.',
+    },
+    date: '2023-08-05',
+    image: '/assets/images/wafbypassblog.png',
+    url: `${blogUrl}posts/bypassing-wafs/`,
+    tags: ['WAF', 'Evasion', 'Bug Bounty'],
+  },
+  {
+    title: { en: 'Attacking GraphQL', fr: 'Attaquer GraphQL' },
+    excerpt: {
+      en: 'Getting started with GraphQL testing, from recon to exploitation, with a hands-on lab on DVGA.',
+      fr: 'Débuter les tests GraphQL, de la reconnaissance à l’exploitation, avec un lab pratique sur DVGA.',
+    },
+    date: '2023-08-02',
+    image: '/assets/images/b-10.webp',
+    url: `${blogUrl}posts/graphql-exploitation/`,
+    tags: ['GraphQL', 'API', 'Recon'],
+  },
+];
+
 export const contact = {
   intro: {
     en: 'I’m open to new opportunities, collaborations, or just a good conversation about cybersecurity. Whether you have a project in mind or want to discuss the latest in threat intelligence, feel free to reach out.',
@@ -474,6 +549,7 @@ export const navLinks: { label: Text; href: string }[] = [
   { label: { en: 'Projects', fr: 'Projets' }, href: '#projects' },
   { label: { en: 'Skills', fr: 'Compétences' }, href: '#skills' },
   { label: { en: 'Certs', fr: 'Certifs' }, href: '#certifications' },
+  { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -534,6 +610,15 @@ export const ui = {
     },
     inProgress: { en: 'In progress', fr: 'En cours' },
     verify: { en: 'Verify', fr: 'Vérifier' },
+  },
+  blog: {
+    title: { en: 'From the Blog', fr: 'Depuis le Blog' },
+    lede: {
+      en: 'Write-ups and cheat sheets from my notes: web and API attacks, evasion, and cloud security.',
+      fr: 'Write-ups et cheat sheets tirés de mes notes : attaques web et API, évasion, et sécurité cloud.',
+    },
+    read: { en: 'Read post', fr: 'Lire l’article' },
+    all: { en: 'All posts', fr: 'Tous les articles' },
   },
   contact: {
     title: { en: 'Get In Touch', fr: 'Me Contacter' },

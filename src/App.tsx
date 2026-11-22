@@ -9,6 +9,7 @@ import About from '@/sections/About';
 import Work from '@/sections/Work';
 import Skills from '@/sections/Skills';
 import Certifications from '@/sections/Certifications';
+import Blog from '@/sections/Blog';
 import Contact from '@/sections/Contact';
 
 declare global {
@@ -51,6 +52,7 @@ export default function App() {
         <Work />
         <Skills />
         <Certifications />
+        <Blog />
         <Contact />
       </main>
     </ClickSpark>

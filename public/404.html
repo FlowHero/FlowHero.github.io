@@ -1,0 +1,163 @@
+<!doctype html>
+<!--
+  GitHub Pages serves this with a real 404 for any path it has no file for.
+  Without it an unknown URL would get GitHub's generic error page instead of
+  a way back to the portfolio.
+
+  Standalone on purpose: no bundle, no fonts, nothing that could itself 404.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="dark" />
+    <title>404 — ABAD Ayoub</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html {
+        /* Stop iOS inflating the type when the phone is turned sideways. */
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        /* svh first for phones, where vh measures the viewport with the
+           browser chrome retracted and overshoots what is on screen. */
+        min-height: 100vh;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #04070a;
+        color: #e6edf3;
+        font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      }
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px);
+      }
+      .glow {
+        position: fixed;
+        top: -30%;
+        left: 50%;
+        width: 120vw;
+        height: 70svh;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: radial-gradient(ellipse at center, #00a86b 0%, transparent 62%);
+        opacity: 0.2;
+        filter: blur(80px);
+        pointer-events: none;
+      }
+      main {
+        position: relative;
+        width: 100%;
+        max-width: 34rem;
+        padding: 0 1.5rem;
+        box-sizing: border-box;
+      }
+      .term {
+        margin: 0 0 2rem;
+        padding: 1.1rem 1.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        background: rgba(8, 12, 17, 0.85);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.8125rem;
+        line-height: 1.8;
+        color: #a9b6c3;
+        overflow-wrap: anywhere;
+      }
+      .term p {
+        margin: 0;
+      }
+      .prompt {
+        color: #00f59b;
+      }
+      .err {
+        color: #ff4d6d;
+      }
+      .caret {
+        display: inline-block;
+        width: 0.55em;
+        height: 1.05em;
+        margin-left: 2px;
+        vertical-align: -0.15em;
+        background: #00f59b;
+        animation: caret 1.05s steps(1) infinite;
+      }
+      @keyframes caret {
+        50% {
+          opacity: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .caret {
+          animation: none;
+        }
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .lede {
+        margin: 0.9rem 0 2rem;
+        line-height: 1.6;
+        color: #8494a4;
+      }
+      a.home {
+        display: inline-flex;
+        align-items: center;
+        /* border-box, or min-height would stack on top of the padding and
+           make the button 68px tall rather than 44. */
+        box-sizing: border-box;
+        min-height: 44px;
+        padding: 0.7rem 1.4rem;
+        border: 1px solid rgba(0, 245, 155, 0.35);
+        border-radius: 999px;
+        color: #00f59b;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.8125rem;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 0.3s ease;
+      }
+      a.home:hover,
+      a.home:focus-visible {
+        background: rgba(0, 245, 155, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+    <main>
+      <div class="term" aria-hidden="true">
+        <p><span class="prompt">ayoub@flowhero:~$</span> cd <span class="path">/requested/path</span></p>
+        <p><span class="err">bash: cd: <span class="path">/requested/path</span>: No such file or directory</span></p>
+        <p><span class="prompt">ayoub@flowhero:~$</span> <span class="caret"></span></p>
+      </div>
+      <h1>404 — Page not found</h1>
+      <p class="lede">The link may be out of date, or the address mistyped. Everything lives on one page.</p>
+      <a class="home" href="/">cd ~ &nbsp;→&nbsp; back to the portfolio</a>
+    </main>
+    <script>
+      // Echo the path that was actually requested into the fake shell.
+      // textContent, never innerHTML: the path is visitor-controlled.
+      try {
+        var path = decodeURIComponent(location.pathname) || '/';
+        document.querySelectorAll('.path').forEach(function (el) {
+          el.textContent = path;
+        });
+      } catch (e) {}
+    </script>
+  </body>
+</html>

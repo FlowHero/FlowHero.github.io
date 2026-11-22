@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <!-- Tiling luminance mask for ProfileCard's holographic shine: the sheen
+       only shows where this is light, so these white security glyphs glint
+       as the card tilts. -->
+  <rect width="240" height="240" fill="#000"/>
+  <g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- padlock -->
+    <rect x="30" y="48" width="44" height="34" rx="6"/>
+    <path d="M40 48v-10a12 12 0 0 1 24 0v10"/>
+    <!-- shield with a check -->
+    <path d="M182 20l28 10v22c0 20-13 32-28 38c-15-6-28-18-28-38v-22z"/>
+    <polyline points="171,53 179,61 194,46"/>
+    <!-- >_ prompt -->
+    <polyline points="30,124 48,138 30,152"/>
+    <line x1="58" y1="154" x2="82" y2="154"/>
+    <!-- 0x -->
+    <ellipse cx="114" cy="139" rx="9" ry="14"/>
+    <line x1="132" y1="130" x2="148" y2="152"/>
+    <line x1="148" y1="130" x2="132" y2="152"/>
+    <!-- key -->
+    <circle cx="174" cy="141" r="11"/>
+    <line x1="185" y1="141" x2="216" y2="141"/>
+    <line x1="207" y1="141" x2="207" y2="151"/>
+    <line x1="216" y1="141" x2="216" y2="149"/>
+    <!-- # -->
+    <line x1="46" y1="190" x2="40" y2="230"/>
+    <line x1="64" y1="190" x2="58" y2="230"/>
+    <line x1="32" y1="202" x2="72" y2="202"/>
+    <line x1="30" y1="218" x2="70" y2="218"/>
+    <!-- { } -->
+    <path d="M112 190c-8 0-8 8-8 12s0 6-6 6c6 0 6 2 6 6s0 12 8 12"/>
+    <path d="M134 190c8 0 8 8 8 12s0 6 6 6c-6 0-6 2-6 6s0 12-8 12"/>
+    <!-- bug -->
+    <ellipse cx="192" cy="212" rx="11" ry="15"/>
+    <line x1="192" y1="199" x2="192" y2="226"/>
+    <path d="M181 205l-9-5M181 214h-10M182 222l-9 6M203 205l9-5M203 214h10M202 222l9 6"/>
+    <path d="M186 198l-4-7M198 198l4-7"/>
+  </g>
+  <!-- keyhole -->
+  <circle cx="52" cy="63" r="4.5" fill="#fff"/>
+  <!-- stray slash, breaks up the grid on repeat -->
+  <line x1="108" y1="44" x2="96" y2="84" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg>

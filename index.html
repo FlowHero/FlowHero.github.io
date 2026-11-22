@@ -1,743 +1,380 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ABAD Ayoub (ayoub) — Cybersecurity Engineer specializing in SecOps, Penetration Testing, and DevSecOps. Based in Morocco.">
-  <title>ABAD Ayoub · Cybersecurity Engineer</title>
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#04070a" />
 
-  <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <style>
-    /* Skills layout override */
-    .sm-layout {
-      margin-top: 3.5rem;
-      display: grid !important;
-      grid-template-columns: 400px 1fr !important;
-      gap: 2rem;
-      align-items: start;
-    }
-    .sm-radar-wrap {
-      position: sticky;
-      top: calc(64px + 1.5rem);
-    }
-    .sm-layout .skills-matrix {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-    @media (max-width: 960px) {
-      .sm-layout { grid-template-columns: 1fr !important; }
-      .sm-radar-wrap { position: static; max-width: 440px; margin: 0 auto; }
-      .sm-layout .skills-matrix { grid-template-columns: repeat(3, 1fr) !important; }
-    }
-    @media (max-width: 640px) {
-      .sm-layout .skills-matrix { grid-template-columns: repeat(2, 1fr) !important; }
-    }
-    @media (max-width: 440px) {
-      .sm-layout .skills-matrix { grid-template-columns: 1fr !important; }
-    }
-    .sm-radar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
-    .sm-radar-title { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
-    .sm-radar-hint { font-size: 0.62rem; color: var(--muted); opacity: 0.5; font-style: italic; }
-    .sm-radar-tooltip { text-align: center; min-height: 1.5rem; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); line-height: 1.5rem; }
-    .sm-rl-item { cursor: pointer; border-radius: 0.4rem; padding: 0.18rem 0.3rem; transition: background 0.2s, color 0.2s; user-select: none; }
-    .sm-rl-item:hover, .sm-rl-item.sm-rl-active { color: var(--text); background: var(--cyan-10); }
-    .sm-rl-item i { transition: transform 0.2s; }
-    .sm-rl-item.sm-rl-active i { transform: scale(1.5); }
-    .sm-card.sm-active { border-color: color-mix(in srgb, var(--sm-color) 55%, transparent) !important; transform: translateY(-4px) !important; box-shadow: 0 0 24px color-mix(in srgb, var(--sm-color) 14%, transparent), 0 8px 24px rgba(0,0,0,0.3); }
-    .sm-card.sm-active .sm-glow-bg { opacity: 0.4; }
-    .sm-card.sm-active .sm-icon { box-shadow: 0 0 16px var(--sm-glow); transform: scale(1.08); }
-  </style>
-</head>
-<body>
+    <title>ABAD Ayoub — Cybersecurity Engineer</title>
+    <meta
+      name="description"
+      content="ABAD Ayoub (FlowHero) — Cybersecurity Engineer in Morocco specializing in SecOps, penetration testing and DevSecOps. SOC, incident response, web & API pentesting, cloud security."
+    />
+    <meta name="author" content="ABAD Ayoub" />
+    <meta
+      name="keywords"
+      content="ABAD Ayoub, Ayoub Abad, FlowHero, cybersecurity engineer, SecOps, SOC analyst, penetration tester, DevSecOps, bug bounty, Oujda Morocco"
+    />
 
-  <!-- ======= NAVBAR ======= -->
-  <header id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-bracket">[</span>ayoub<span class="logo-bracket">]</span><span class="logo-cursor">_</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#about"          data-i18n="nav.about">About</a>
-        <a href="#skills"         data-i18n="nav.skills">Skills</a>
-        <a href="#experience"     data-i18n="nav.experience">Experience</a>
-        <a href="#education"      data-i18n="nav.education">Education</a>
-        <a href="#projects"       data-i18n="nav.projects">Projects</a>
-        <a href="#certifications" data-i18n="nav.certs">Certs</a>
-        <a href="#contact"        data-i18n="nav.contact">Contact</a>
-      </nav>
-      <div class="nav-right">
-        <div class="lang-toggle" id="lang-toggle" aria-label="Switch language">
-          <button class="lang-btn active" data-lang="en">EN</button>
-          <span class="lang-sep">/</span>
-          <button class="lang-btn" data-lang="fr">FR</button>
+    <link rel="canonical" href="https://flowhero.github.io/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ayoub Abad",
+        "givenName": "Ayoub",
+        "familyName": "Abad",
+        "alternateName": ["ABAD Ayoub", "Ayoub ABAD", "FlowHero"],
+        "url": "https://flowhero.github.io/",
+        "image": "https://flowhero.github.io/subject.webp",
+        "jobTitle": "Cybersecurity Engineer",
+        "description": "Cybersecurity Engineer specializing in SecOps, penetration testing and DevSecOps.",
+        "email": "mailto:ayoub.02.abad@gmail.com",
+        "worksFor": { "@type": "Organization", "name": "Tessi" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "ENSA Oujda (École Nationale des Sciences Appliquées)" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Oujda", "addressCountry": "MA" },
+        "knowsLanguage": ["ar", "en", "fr"],
+        "knowsAbout": [
+          "Security Operations",
+          "Incident Response",
+          "Threat Hunting",
+          "Penetration Testing",
+          "Web Application Security",
+          "API Security",
+          "DevSecOps",
+          "Cloud Security"
+        ],
+        "sameAs": ["https://linkedin.com/in/abaa-youb", "https://tryhackme.com/p/FlowHero"]
+      }
+    </script>
+
+    <!-- Open Graph / social preview. Absolute URLs on purpose: LinkedIn and
+         Facebook ignore relative ones. Update these if the domain changes. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://flowhero.github.io/" />
+    <meta property="og:site_name" content="ABAD Ayoub" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:title" content="ABAD Ayoub — Cybersecurity Engineer" />
+    <meta
+      property="og:description"
+      content="SecOps, penetration testing and DevSecOps. Building defenses. Breaking assumptions."
+    />
+    <meta property="og:image" content="https://flowhero.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ABAD Ayoub — Cybersecurity Engineer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://flowhero.github.io/og-image.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      Preloader styles live inline so the overlay paints on the first frame,
+      before the CSS bundle or any font has arrived. Everything here is scoped
+      under #preloader and the whole node is removed from the DOM once the app
+      is up, so none of it can leak into the page.
+    -->
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #04070a;
+        font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s;
+      }
+      #preloader.pl-out {
+        opacity: 0;
+        visibility: hidden;
+        /* `visibility` only flips at the END of its transition, so for the whole
+           600ms fade the overlay was invisible but still hit-testable and ate
+           every click. Release the pointer the instant the fade starts. */
+        pointer-events: none;
+      }
+      /* Same palette as the hero backdrop, so the fade-out lands on a
+         background that already looks like the page underneath it. */
+      #preloader .pl-glow {
+        position: absolute;
+        top: -30%;
+        left: 50%;
+        width: 120vw;
+        height: 70vh;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: radial-gradient(ellipse at center, #00a86b 0%, transparent 62%);
+        opacity: 0.24;
+        filter: blur(80px);
+      }
+      /* CRT scanlines over the whole overlay. */
+      #preloader::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.025) 0px,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      }
+      #preloader .pl-inner {
+        position: relative;
+        width: min(84vw, 22rem);
+      }
+      #preloader .pl-log {
+        margin: 0 0 1.6rem;
+        padding: 0;
+        list-style: none;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        line-height: 1.8;
+        color: #6f8090;
+        white-space: nowrap;
+      }
+      #preloader .pl-log li {
+        opacity: 0;
+        animation: pl-line 0.3s steps(2) forwards;
+      }
+      #preloader .pl-ok {
+        color: #00f59b;
+      }
+      #preloader .pl-run {
+        color: #fbbf24;
+      }
+      @keyframes pl-line {
+        to {
+          opacity: 1;
+        }
+      }
+      #preloader .pl-name {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.6rem;
+        font-size: clamp(1.9rem, 7vw, 3rem);
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-indent: 0.22em; /* balance the trailing letter-spacing */
+        background: linear-gradient(90deg, #34ffb0, #00f59b, #22d3ee);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      #preloader .pl-name span {
+        opacity: 0;
+        animation: pl-letter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      @keyframes pl-letter {
+        from {
+          opacity: 0;
+          transform: translateY(0.35em);
+          filter: blur(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+          filter: blur(0);
+        }
+      }
+      #preloader .pl-track {
+        height: 2px;
+        overflow: hidden;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.09);
+      }
+      #preloader .pl-fill {
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left center;
+        background: linear-gradient(90deg, #00f59b, #22d3ee);
+        box-shadow: 0 0 14px rgba(0, 245, 155, 0.55);
+      }
+      #preloader .pl-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.75rem;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #6f8090;
+      }
+      #preloader .pl-pct {
+        color: #00f59b;
+        font-variant-numeric: tabular-nums;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #preloader,
+        #preloader .pl-name span,
+        #preloader .pl-log li {
+          animation: none;
+          transition-duration: 0.15s;
+        }
+        #preloader .pl-name span,
+        #preloader .pl-log li {
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <!-- With JS off the overlay has nothing to dismiss it, and it would cover
+         the static copy the build writes into #root. Drop it instead: the page
+         is then plain but complete and readable. Must come after the block
+         above — same specificity, so document order decides. -->
+    <noscript>
+      <style>
+        #preloader {
+          display: none;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div id="preloader" role="status" aria-live="polite" aria-label="Loading portfolio">
+      <div class="pl-glow" aria-hidden="true"></div>
+      <div class="pl-inner">
+        <ul class="pl-log" aria-hidden="true">
+          <li style="animation-delay: 0.05s"><span class="pl-ok">[  OK  ]</span> Mounted /home/ayoub</li>
+          <li style="animation-delay: 0.22s"><span class="pl-ok">[  OK  ]</span> Reached target network-online</li>
+          <li style="animation-delay: 0.39s"><span class="pl-run" id="pl-last">[  ..  ]</span> Verifying signatures</li>
+        </ul>
+        <div class="pl-name" aria-hidden="true">
+          <span style="animation-delay: 0.00s">A</span><span style="animation-delay: 0.06s">Y</span
+          ><span style="animation-delay: 0.12s">O</span><span style="animation-delay: 0.18s">U</span
+          ><span style="animation-delay: 0.24s">B</span>
         </div>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-          <!-- Sun: shown in dark mode (click → light) -->
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <!-- Moon: shown in light mode (click → dark) -->
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="#about"          data-i18n="nav.about">About</a>
-      <a href="#skills"         data-i18n="nav.skills">Skills</a>
-      <a href="#experience"     data-i18n="nav.experience">Experience</a>
-      <a href="#education"      data-i18n="nav.education">Education</a>
-      <a href="#projects"       data-i18n="nav.projects">Projects</a>
-      <a href="#certifications" data-i18n="nav.certs">Certifications</a>
-      <a href="#contact"        data-i18n="nav.contact">Contact</a>
-    </div>
-  </header>
-
-  <!-- ======= HERO ======= -->
-  <section id="hero">
-    <canvas id="particles-canvas"></canvas>
-    <div class="hero-content">
-
-      <div class="hero-avatar">
-        <img src="./assets/images/profile_pic.png" alt="ABAD Ayoub">
-      </div>
-
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        <span data-i18n="hero.badge">Open to new opportunities</span>
-      </div>
-
-      <h1 class="hero-name">ABAD <span class="accent">Ayoub</span></h1>
-
-      <div class="hero-role">
-        <span class="role-prefix">$ whoami &gt;&gt;&nbsp;</span>
-        <span id="typing-text"></span><span class="typing-cursor">|</span>
-      </div>
-
-      <p class="hero-bio">
-        <span data-i18n="hero.bio">Cybersecurity Engineer specializing in SecOps, Penetration Testing &amp; DevSecOps.</span><br>
-        <span data-i18n="hero.tagline">Building defenses. Breaking assumptions.</span>
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#contact" class="btn-primary"   data-i18n="hero.cta1">Get in Touch</a>
-        <a href="#projects" class="btn-secondary" data-i18n="hero.cta2">View Projects</a>
-        <a href="./assets/cv/cv.pdf" class="btn-cv" download>
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download CV
-        </a>
-        <div class="hero-exp-badge">
-          <span class="exp-value accent-green">2+</span>
-          <span class="exp-label" data-i18n="hero.stat3">Years Exp.</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-scroll-hint">
-      <span data-i18n="hero.scroll">Scroll</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
-
-  <!-- ======= ABOUT ======= -->
-  <section id="about" class="section">
-    <div class="container">
-      <span class="section-label">01 / about.md</span>
-      <h2 class="section-title" data-i18n="about.title">About <span class="accent">Me</span></h2>
-      <div class="about-grid">
-
-        <div class="about-text reveal">
-          <p data-i18n="about.p1">
-            I'm a Cybersecurity Engineer based in Morocco, currently working as a
-            <strong class="accent">SecOps Engineer at Tessi</strong>, where I monitor and
-            investigate security alerts across Network, SaaS, Email, and Endpoint vectors
-            using SIEM, NDR, EDR, WAF, and IPS/IDS solutions.
-          </p>
-          <p data-i18n="about.p2">
-            I hold a State Engineer Diploma in Computer Security &amp; Cybersecurity from
-            <strong class="accent">ENSA Oujda</strong> (2019–2024). My background spans
-            offensive security (web pentesting, bug bounty), defensive security (SOC, incident
-            response), and cloud security (DevSecOps, Kubernetes, AWS/Azure).
-          </p>
-          <p data-i18n="about.p3">
-            What drives me is the offensive/defensive duality, understanding attack techniques to build better defenses. From pentesting to incident response, I enjoy operating on both sides.
-          </p>
-          <div class="about-info">
-            <div class="info-item">
-              <span class="info-label" data-i18n="about.loc.label">Location</span>
-              <span class="info-value" data-i18n="about.loc.value">Oujda, Morocco</span>
-            </div>
-            <div class="info-item">
-              <span class="info-label" data-i18n="about.email.label">Email</span>
-              <a href="mailto:ayoub.02.abad@gmail.com" class="info-value info-link">ayoub.02.abad@gmail.com</a>
-            </div>
-            <div class="info-item">
-              <span class="info-label">LinkedIn</span>
-              <a href="https://linkedin.com/in/abaa-youb" target="_blank" rel="noopener" class="info-value info-link">linkedin.com/in/abaa-youb</a>
-            </div>
-            <div class="info-item">
-              <span class="info-label" data-i18n="about.lang.label">Languages</span>
-              <span class="info-value" data-i18n="about.lang.value">Arabic (Native) · English (Advanced) · French (Advanced)</span>
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= SKILLS ======= -->
-  <section id="skills" class="section section-alt">
-    <div class="container">
-      <span class="section-label">02 / skills.json</span>
-      <h2 class="section-title" data-i18n="skills.title">Technical <span class="accent">Skills</span></h2>
-
-      <!-- ── Skills Layout: Radar + Matrix ──────────────── -->
-      <div class="sm-layout">
-
-        <!-- Radar Chart -->
-        <div class="sm-radar-wrap reveal">
-          <canvas id="skillsRadar"></canvas>
-          <div class="sm-radar-tooltip" id="sm-radar-tooltip">&nbsp;</div>
-          <div class="sm-radar-legend">
-            <span class="sm-rl-item" data-skill-index="0"><i style="background:#ff4d6d;box-shadow:0 0 5px #ff4d6d80"></i>Offensive Sec</span>
-            <span class="sm-rl-item" data-skill-index="1"><i style="background:#60a5fa;box-shadow:0 0 5px #60a5fa80"></i>Defensive / SOC</span>
-            <span class="sm-rl-item" data-skill-index="2"><i style="background:#8b5cf6;box-shadow:0 0 5px #8b5cf680"></i>Cloud &amp; DevSec</span>
-            <span class="sm-rl-item" data-skill-index="3"><i style="background:#00e676;box-shadow:0 0 5px #00e67680"></i>Programming</span>
-            <span class="sm-rl-item" data-skill-index="4"><i style="background:#fbbf24;box-shadow:0 0 5px #fbbf2480"></i>Security Tools</span>
-            <span class="sm-rl-item" data-skill-index="5"><i style="background:#94a3b8;box-shadow:0 0 5px #94a3b880"></i>Compliance</span>
-          </div>
-        </div>
-
-        <div class="skills-matrix">
-
-          <div class="sm-card reveal" data-sm-pct="80" data-skill-index="0" style="--sm-color:#ff4d6d;--sm-glow:rgba(255,77,109,0.4);">
-            <div class="sm-glow-bg"></div>
-            <div class="sm-inner">
-              <div class="sm-header">
-                <div class="sm-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                </div>
-                <div class="sm-meta">
-                  <h4>Offensive Security</h4>
-                  <p>80% Proficiency</p>
-                </div>
-              </div>
-              <div class="sm-track"><div class="sm-bar"></div></div>
-              <div class="sm-tags">
-                <span class="sm-tag">Web App Pentesting</span>
-                <span class="sm-tag">API Security</span>
-                <span class="sm-tag">Bug Bounty</span>
-                <span class="sm-tag">SQLi / XSS / LFI</span>
-                <span class="sm-tag">Recon &amp; OSINT</span>
-                <span class="sm-tag">WAF Bypass</span>
-                <span class="sm-tag">Active Directory Attacks</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="sm-card reveal" data-sm-pct="85" data-skill-index="1" style="--sm-color:#60a5fa;--sm-glow:rgba(96,165,250,0.35);">
-            <div class="sm-glow-bg"></div>
-            <div class="sm-inner">
-              <div class="sm-header">
-                <div class="sm-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                </div>
-                <div class="sm-meta">
-                  <h4>Defensive / SOC</h4>
-                  <p>85% Proficiency</p>
-                </div>
-              </div>
-              <div class="sm-track"><div class="sm-bar"></div></div>
-              <div class="sm-tags">
-                <span class="sm-tag">SIEM</span>
-                <span class="sm-tag">SOC Operations</span>
-                <span class="sm-tag">Incident Response</span>
-                <span class="sm-tag">Threat Hunting</span>
-                <span class="sm-tag">NDR / EDR / WAF</span>
-                <span class="sm-tag">CVE Management</span>
-                <span class="sm-tag">Network Security</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="sm-card reveal" data-sm-pct="66" data-skill-index="2" style="--sm-color:#8b5cf6;--sm-glow:rgba(139,92,246,0.4);">
-            <div class="sm-glow-bg"></div>
-            <div class="sm-inner">
-              <div class="sm-header">
-                <div class="sm-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                </div>
-                <div class="sm-meta">
-                  <h4>Cloud &amp; DevSecOps</h4>
-                  <p>66% Proficiency</p>
-                </div>
-              </div>
-              <div class="sm-track"><div class="sm-bar"></div></div>
-              <div class="sm-tags">
-                <span class="sm-tag">AWS</span>
-                <span class="sm-tag">Microsoft Azure</span>
-                <span class="sm-tag">Kubernetes</span>
-                <span class="sm-tag">Docker</span>
-                <span class="sm-tag">CI/CD</span>
-                <span class="sm-tag">SAST / DAST / SCA</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="sm-card reveal" data-sm-pct="76" data-skill-index="3" style="--sm-color:#00e676;--sm-glow:rgba(0,230,118,0.4);">
-            <div class="sm-glow-bg"></div>
-            <div class="sm-inner">
-              <div class="sm-header">
-                <div class="sm-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                </div>
-                <div class="sm-meta">
-                  <h4>Programming &amp; Scripting</h4>
-                  <p>76% Proficiency</p>
-                </div>
-              </div>
-              <div class="sm-track"><div class="sm-bar"></div></div>
-              <div class="sm-tags">
-                <span class="sm-tag">Python</span>
-                <span class="sm-tag">Bash Scripting</span>
-                <span class="sm-tag">PowerShell</span>
-                <span class="sm-tag">Shell</span>
-                <span class="sm-tag">C</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="sm-card reveal" data-sm-pct="83" data-skill-index="4" style="--sm-color:#fbbf24;--sm-glow:rgba(251,191,36,0.4);">
-            <div class="sm-glow-bg"></div>
-            <div class="sm-inner">
-              <div class="sm-header">
-                <div class="sm-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <div class="sm-meta">
-                  <h4>Security Tools</h4>
-                  <p>83% Proficiency</p>
-                </div>
-              </div>
-              <div class="sm-track"><div class="sm-bar"></div></div>
-              <div class="sm-tags">
-                <span class="sm-tag">Burp Suite</span>
-                <span class="sm-tag">Metasploit</span>
-                <span class="sm-tag">Nmap</span>
-                <span class="sm-tag">Wireshark</span>
-                <span class="sm-tag">SQLMap</span>
-                <span class="sm-tag">Nuclei</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="sm-card reveal" data-sm-pct="55" data-skill-index="5" style="--sm-color:#94a3b8;--sm-glow:rgba(148,163,184,0.4);">
-            <div class="sm-glow-bg"></div>
-            <div class="sm-inner">
-              <div class="sm-header">
-                <div class="sm-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                </div>
-                <div class="sm-meta">
-                  <h4>Compliance &amp; Frameworks</h4>
-                  <p>55% Proficiency</p>
-                </div>
-              </div>
-              <div class="sm-track"><div class="sm-bar"></div></div>
-              <div class="sm-tags">
-                <span class="sm-tag">PCI-DSS</span>
-                <span class="sm-tag">ISO 27001</span>
-                <span class="sm-tag">NIST</span>
-                <span class="sm-tag">Network Security</span>
-                <span class="sm-tag">IPSec VPN</span>
-                <span class="sm-tag">DLP</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======= EXPERIENCE ======= -->
-  <section id="experience" class="section">
-    <div class="container">
-      <span class="section-label">03 / experience.log</span>
-      <h2 class="section-title" data-i18n="exp.title">Work <span class="accent">Experience</span></h2>
-      <div class="timeline">
-
-        <!-- Job 1 -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-title-group">
-                <h3 class="tl-role" data-i18n="job1.role">SecOps Engineer</h3>
-                <span class="tl-company">Tessi</span>
-              </div>
-              <div class="tl-meta">
-                <span class="tl-date" data-i18n="job1.date">Mar 2025 – Present</span>
-                <span class="tl-location" data-i18n="job1.loc">Oujda, Morocco · Hybrid</span>
-              </div>
-            </div>
-            <ul class="tl-bullets">
-              <li data-i18n="job1.b1">Monitor, analyze and investigate security alerts (Network, SaaS, Email, Endpoint) via SIEM, NDR, EDR, WAF, and IPS/IDS</li>
-              <li data-i18n="job1.b2">Critical vulnerability (CVE) monitoring, exposure analysis, and remediation tracking</li>
-              <li data-i18n="job1.b3">Respond to client cybersecurity questionnaires (ISO 27001 compliance posture)</li>
-              <li data-i18n="job1.b4">Developed a Python dashboard with IRIS API for incident/alert/CVE visualization and SOC KPI tracking (MTTD, MTTR)</li>
-              <li data-i18n="job1.b5">NDR solution POC integration and evaluation in a production environment: tuning, alert triage and investigation, detection coverage validation through attack simulation, comparative analysis with the existing solution, and definition of the final decision framework.</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag-sm">SIEM</span><span class="tag-sm">EDR</span>
-              <span class="tag-sm">NDR</span><span class="tag-sm">SOC</span>
-              <span class="tag-sm">Python</span><span class="tag-sm">ISO 27001</span>
-              <span class="tag-sm">CVE</span><span class="tag-sm">Incident Response</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job 2 -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-title-group">
-                <h3 class="tl-role" data-i18n="job2.role">Network &amp; Security Engineer</h3>
-                <span class="tl-company">
-                  Société Générale ABS
-                  <span class="badge-intern" data-i18n="job2.badge">Internship · 6 months</span>
-                </span>
-              </div>
-              <div class="tl-meta">
-                <span class="tl-date" data-i18n="job2.date">Feb 2024 – Aug 2024</span>
-                <span class="tl-location" data-i18n="job2.loc">Casablanca, Morocco</span>
-              </div>
-            </div>
-            <ul class="tl-bullets">
-              <li data-i18n="job2.b1">Built a secure network infrastructure connecting SG African subsidiaries to the public internet with NGFW, Proxy, and DLP layers</li>
-              <li data-i18n="job2.b2">Configured IPSec VPN tunnels for site-to-site connectivity</li>
-              <li data-i18n="job2.b3">Assisted with PCI-DSS compliance implementation</li>
-              <li data-i18n="job2.b4">Contributed to EDR and IDS/IPS solution deployment</li>
-              <li data-i18n="job2.b5">Managed HW &amp; SW obsolescence</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag-sm">NGFW</span><span class="tag-sm">IPSec VPN</span>
-              <span class="tag-sm">PCI-DSS</span><span class="tag-sm">EDR</span>
-              <span class="tag-sm">IDS/IPS</span><span class="tag-sm">DLP</span>
-              <span class="tag-sm">Proxy</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job 3 -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-title-group">
-                <h3 class="tl-role" data-i18n="job3.role">Cybersecurity Engineer</h3>
-                <span class="tl-company">
-                  Tisalabs
-                  <span class="badge-intern" data-i18n="job3.badge">Internship · 2 months</span>
-                </span>
-              </div>
-              <div class="tl-meta">
-                <span class="tl-date" data-i18n="job3.date">Jul 2023 – Sep 2023</span>
-                <span class="tl-location" data-i18n="job3.loc">Cork, Ireland · Remote</span>
-              </div>
-            </div>
-            <ul class="tl-bullets">
-              <li data-i18n="job3.b1">Vulnerability Assessment and Penetration Testing (VAPT)</li>
-              <li data-i18n="job3.b2">Python development and Bash scripting for automation</li>
-              <li data-i18n="job3.b3">Docker containerization and Kubernetes security</li>
-              <li data-i18n="job3.b4">Agile methodology — GitLab workflows</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag-sm">VAPT</span><span class="tag-sm">Python</span>
-              <span class="tag-sm">Bash</span><span class="tag-sm">Docker</span>
-              <span class="tag-sm">Kubernetes</span><span class="tag-sm">GitLab</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= EDUCATION ======= -->
-  <section id="education" class="section section-alt">
-    <div class="container">
-      <span class="section-label">04 / education.txt</span>
-      <h2 class="section-title" data-i18n="edu.title">Education</h2>
-      <div class="edu-card reveal">
-        <div class="edu-icon-wrap">
-          <img src="./assets/images/ensao.webp" alt="ENSA Oujda" class="edu-logo">
-        </div>
-        <div class="edu-body">
-          <div class="tl-header">
-            <div class="tl-title-group">
-              <h3 class="tl-role" data-i18n="edu.degree">State Engineer Diploma — Computer Security &amp; Cybersecurity</h3>
-              <span class="tl-company" data-i18n="edu.school">ENSA Oujda (École Nationale des Sciences Appliquées)</span>
-            </div>
-            <div class="tl-meta">
-              <span class="tl-date">2019 – 2024</span>
-              <span class="tl-location" data-i18n="edu.loc">Oujda, Morocco</span>
-            </div>
-          </div>
-          <p class="edu-desc" data-i18n="edu.desc">
-            5-year engineering program covering networks, system administration, cryptography, mobile security,
-            ethical hacking, penetration testing, cloud computing, big data, machine learning, and security audits.
-          </p>
-          <div class="tl-tags">
-            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag1">Networking</span>
-            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag2">Cryptography</span>
-            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag3">Ethical Hacking</span>
-            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag4">Penetration Testing</span>
-            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag5">Cloud Computing</span>
-            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag6">Machine Learning</span>
-            <span class="tag-sm tag-sm-edu" data-i18n="edu.tag7">Security Audits</span>
-          </div>
+        <div class="pl-track" aria-hidden="true"><div class="pl-fill"></div></div>
+        <div class="pl-meta" aria-hidden="true">
+          <span class="pl-label">Decrypting</span><span class="pl-pct">0%</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ======= PROJECTS ======= -->
-  <section id="projects" class="section">
-    <div class="container">
-      <span class="section-label">05 / projects.sh</span>
-      <h2 class="section-title" data-i18n="proj.title">Recent <span class="accent">Projects</span></h2>
-      <div class="projects-grid">
+    <script>
+      (function () {
+        var el = document.getElementById('preloader');
+        if (!el) return;
+        var fill = el.querySelector('.pl-fill');
+        var pct = el.querySelector('.pl-pct');
+        var last = document.getElementById('pl-last');
+        var reduce =
+          window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        <div class="project-card reveal">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FF9900"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687a.47.47 0 0 1-.32-.08c-.063-.056-.12-.16-.151-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32a.453.453 0 0 1-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.662.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.264v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.991.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.972-9.722 2.972-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.025-.527.27-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.385.604zm1.093-1.254c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/></svg>
-            </span>
-            <span class="badge-featured" data-i18n="proj.featured">Featured</span>
-          </div>
-          <h3 class="project-title" data-i18n="proj1.title">Cloud-Native DevSecOps on AWS EKS</h3>
-          <p class="project-desc" data-i18n="proj1.desc">
-            End-to-end DevSecOps pipeline for a 3-tier application on Amazon EKS. CI/CD with
-            Jenkins + ArgoCD + Terraform IaC. Security embedded at every stage: GitLeaks
-            pre-commit hooks, SAST tools, OWASP DependencyCheck (SCA), OWASP ZAP (DAST),
-            Trivy for containers/Kubernetes/IaC, SonarQube for code quality, Vault for secrets,
-            Prometheus &amp; Grafana for monitoring, and EFK for centralized logging.
-          </p>
-          <div class="project-tech">
-            <span>AWS EKS</span><span>Kubernetes</span><span>Jenkins</span>
-            <span>Terraform</span><span>ArgoCD</span><span>Trivy</span>
-            <span>SonarQube</span><span>Vault</span>
-          </div>
-        </div>
+        // Speak the visitor's language before React is even here: the same
+        // saved choice / browser preference the app's toggle starts from.
+        try {
+          var saved = localStorage.getItem('lang');
+          var langs = navigator.languages || [navigator.language];
+          var fr =
+            saved === 'fr' ||
+            (saved !== 'en' &&
+              [].some.call(langs, function (l) {
+                return /^fr/i.test(l || '');
+              }));
+          if (fr) {
+            el.setAttribute('aria-label', 'Chargement du portfolio');
+            el.querySelector('.pl-label').textContent = 'Déchiffrement';
+          }
+        } catch (e) {}
 
-        <div class="project-card reveal">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="az-a" x1="-1032.17" x2="-1059.21" y1="145.31" y2="65.43" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#114a8b"/><stop offset="1" stop-color="#0669bc"/></linearGradient><linearGradient id="az-b" x1="-1023.73" x2="-1029.98" y1="108.08" y2="105.97" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-opacity=".3"/><stop offset=".07" stop-opacity=".2"/><stop offset=".32" stop-opacity=".1"/><stop offset=".62" stop-opacity=".05"/><stop offset="1" stop-opacity="0"/></linearGradient><linearGradient id="az-c" x1="-1027.16" x2="-997.48" y1="147.64" y2="68.56" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3ccbf4"/><stop offset="1" stop-color="#2892df"/></linearGradient></defs><path fill="url(#az-a)" d="M33.34 6.54h26.04l-27.03 80.1a4.15 4.15 0 0 1-3.94 2.81H8.15a4.14 4.14 0 0 1-3.93-5.47L29.4 9.38a4.15 4.15 0 0 1 3.94-2.83z"/><path fill="#0078d4" d="M71.17 60.26H29.88a1.91 1.91 0 0 0-1.3 3.31l26.53 24.76a4.17 4.17 0 0 0 2.85 1.13h23.38z"/><path fill="url(#az-b)" d="M33.34 6.54a4.12 4.12 0 0 0-3.95 2.88L4.25 83.92a4.14 4.14 0 0 0 3.91 5.54h20.79a4.44 4.44 0 0 0 3.4-2.9l5.02-14.78 17.91 16.7a4.24 4.24 0 0 0 2.67.97h23.29L71.02 60.26H41.24L59.47 6.55z"/><path fill="url(#az-c)" d="M66.6 9.36a4.14 4.14 0 0 0-3.93-2.82H33.65a4.15 4.15 0 0 1 3.93 2.82l25.18 74.62a4.15 4.15 0 0 1-3.93 5.48h29.02a4.15 4.15 0 0 0 3.93-5.48z"/></svg>
-            </span>
-          </div>
-          <h3 class="project-title" data-i18n="proj2.title">RDP Brute-Force Map — Azure Sentinel</h3>
-          <p class="project-desc" data-i18n="proj2.desc">
-            Real-time global threat map tracking RDP brute-force attacks using Azure Sentinel
-            SIEM. A custom PowerShell script extracts event metadata from Windows Event Viewer
-            and enriches it via geolocation API. Azure Log Analytics ingests custom logs;
-            a Sentinel workbook visualizes global attacks by location and intensity.
-          </p>
-          <div class="project-tech">
-            <span>Azure Sentinel</span><span>Log Analytics</span>
-            <span>PowerShell</span><span>SIEM</span><span>Geolocation API</span>
-          </div>
-        </div>
+        // Minimum time on screen. Without it a warm cache flashes the overlay
+        // for one frame, which reads as a glitch rather than an intro.
+        var MIN = reduce ? 0 : 1100;
+        var start = performance.now();
+        var progress = 0;
+        var lastFrame = start;
+        var ready = false;
+        var finished = false;
 
-        <div class="project-card reveal">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-            </span>
-          </div>
-          <h3 class="project-title" data-i18n="proj3.title">Web &amp; API Pentest Automation</h3>
-          <p class="project-desc" data-i18n="proj3.desc">
-            Suite of Bash scripts automating repetitive pentesting and bug bounty tasks:
-            recon, WAF detection &amp; bypass, technology fingerprinting (WordPress, GraphQL),
-            fuzzing, spidering, secrets scanning, and comprehensive vulnerability testing
-            (LFI, SQLi, XSS).
-          </p>
-          <div class="project-tech">
-            <span>Bash</span><span>Recon</span><span>WAF Bypass</span>
-            <span>Fuzzing</span><span>SQLi / XSS</span><span>Bug Bounty</span>
-          </div>
-        </div>
+        function paint() {
+          fill.style.transform = 'scaleX(' + progress / 100 + ')';
+          pct.textContent = Math.round(progress) + '%';
+        }
 
-        <div class="project-card reveal">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </span>
-          </div>
-          <h3 class="project-title" data-i18n="proj4.title">Web App Source Code Security Audit</h3>
-          <p class="project-desc" data-i18n="proj4.desc">
-            In-depth source code analysis of PHP and Node.js applications to identify
-            critical vulnerabilities — input validation flaws, authentication weaknesses,
-            error handling issues, and business logic bugs. Proposed concrete remediations
-            including secure coding practices, input validation, and regular audits.
-          </p>
-          <div class="project-tech">
-            <span>PHP</span><span>Node.js</span><span>SAST</span>
-            <span>Code Review</span><span>OWASP Top 10</span>
-          </div>
-        </div>
+        // Creep toward 90% while we wait on the app. Frame-rate independent:
+        // a slow device animates the same curve, just with fewer samples.
+        function frame(now) {
+          if (finished) return;
+          var dt = now - lastFrame;
+          lastFrame = now;
+          // Hold at 90 until the app reports in AND the minimum is served, so
+          // this agrees with complete() instead of fighting it over the snap.
+          var elapsed = now - start;
+          var target = ready && elapsed >= MIN ? 100 : Math.min(90, (elapsed / MIN) * 90);
+          progress += (target - progress) * (1 - Math.pow(0.88, dt / 16.67));
+          paint();
+          requestAnimationFrame(frame);
+        }
 
-      </div>
-    </div>
-  </section>
+        // Completion is driven by timers, not frames, so a stalled rAF (a busy
+        // main thread during boot, a weak GPU) can never strand the overlay.
+        function complete() {
+          if (finished) return;
+          var wait = Math.max(0, MIN - (performance.now() - start));
+          if (wait > 0) return setTimeout(complete, wait);
+          progress = 100;
+          paint();
+          if (last) {
+            last.textContent = '[  OK  ]';
+            last.className = 'pl-ok';
+          }
+          setTimeout(finish, reduce ? 0 : 260); // let the full bar register
+        }
 
-  <!-- ======= CERTIFICATIONS ======= -->
-  <section id="certifications" class="section section-alt">
-    <div class="container">
-      <span class="section-label">06 / certs.md</span>
-      <h2 class="section-title" data-i18n="cert.title">Achievements &amp; <span class="accent">Certifications</span></h2>
-      <div class="certs-grid">
+        function finish() {
+          if (finished) return;
+          finished = true;
+          el.classList.add('pl-out');
+          // Hero entrance animations wait on this — otherwise the decrypt
+          // plays out behind the overlay and is already a third gone by the
+          // time anyone can see it.
+          window.__loaded = true;
+          window.dispatchEvent(new Event('app:loaded'));
+          // Drop the node entirely so it can never trap clicks or focus.
+          setTimeout(
+            function () {
+              el.parentNode && el.parentNode.removeChild(el);
+            },
+            reduce ? 160 : 700
+          );
+        }
 
-        <a href="https://academy.hackthebox.com/achievement/257048/path/390" target="_blank" rel="noopener" class="cert-card cert-featured reveal">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="cert-body">
-            <h3 data-i18n="cert3.title">HackTheBox — SOC Analyst</h3>
-            <p data-i18n="cert3.desc">Blue Team Operations Track</p>
-            <span class="cert-badge">Completed</span>
-          </div>
-        </a>
+        // App.tsx calls this once React has mounted and the fonts have settled.
+        window.__appReady = function () {
+          if (ready) return;
+          ready = true;
+          complete();
+        };
 
-        <div class="cert-card cert-featured reveal">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
-          </div>
-          <div class="cert-body">
-            <h3>TryHackMe — Top 1%</h3>
-            <p data-i18n="cert1.desc">Web Fundamentals · Pre-Security · Jr. Pentester · Pentest+ · Cyber Defense</p>
-            <span class="cert-badge">Top 1%</span>
-          </div>
-        </div>
+        // Belt and braces: never leave the overlay up if the app fails to boot.
+        window.addEventListener('load', function () {
+          setTimeout(window.__appReady, 600);
+        });
+        setTimeout(window.__appReady, 5000);
 
-        <div class="cert-card reveal">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <div class="cert-body">
-            <h3 data-i18n="cert2.title">HackTheBox — Senior Web Penetration Tester</h3>
-            <p data-i18n="cert2.desc">Offensive Web Security Track</p>
-            <div class="cert-progress-wrap">
-              <div class="cert-bar"><div class="cert-fill" style="width:67%"></div></div>
-              <span>67%</span>
-            </div>
-          </div>
-        </div>
+        requestAnimationFrame(frame);
+      })();
+    </script>
 
-        <div class="cert-card reveal">
-          <div class="cert-icon">
-            <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="az2-a" x1="-1032.17" x2="-1059.21" y1="145.31" y2="65.43" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#114a8b"/><stop offset="1" stop-color="#0669bc"/></linearGradient><linearGradient id="az2-b" x1="-1023.73" x2="-1029.98" y1="108.08" y2="105.97" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-opacity=".3"/><stop offset=".07" stop-opacity=".2"/><stop offset=".32" stop-opacity=".1"/><stop offset=".62" stop-opacity=".05"/><stop offset="1" stop-opacity="0"/></linearGradient><linearGradient id="az2-c" x1="-1027.16" x2="-997.48" y1="147.64" y2="68.56" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3ccbf4"/><stop offset="1" stop-color="#2892df"/></linearGradient></defs><path fill="url(#az2-a)" d="M33.34 6.54h26.04l-27.03 80.1a4.15 4.15 0 0 1-3.94 2.81H8.15a4.14 4.14 0 0 1-3.93-5.47L29.4 9.38a4.15 4.15 0 0 1 3.94-2.83z"/><path fill="#0078d4" d="M71.17 60.26H29.88a1.91 1.91 0 0 0-1.3 3.31l26.53 24.76a4.17 4.17 0 0 0 2.85 1.13h23.38z"/><path fill="url(#az2-b)" d="M33.34 6.54a4.12 4.12 0 0 0-3.95 2.88L4.25 83.92a4.14 4.14 0 0 0 3.91 5.54h20.79a4.44 4.44 0 0 0 3.4-2.9l5.02-14.78 17.91 16.7a4.24 4.24 0 0 0 2.67.97h23.29L71.02 60.26H41.24L59.47 6.55z"/><path fill="url(#az2-c)" d="M66.6 9.36a4.14 4.14 0 0 0-3.93-2.82H33.65a4.15 4.15 0 0 1 3.93 2.82l25.18 74.62a4.15 4.15 0 0 1-3.93 5.48h29.02a4.15 4.15 0 0 0 3.93-5.48z"/></svg>
-          </div>
-          <div class="cert-body">
-            <h3 data-i18n="cert4.title">Azure Security Engineer (AZ-500)</h3>
-            <p data-i18n="cert4.desc">CloudGuru · Microsoft Azure Security</p>
-          </div>
-        </div>
-
-        <div class="cert-card reveal">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FF9900"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687a.47.47 0 0 1-.32-.08c-.063-.056-.12-.16-.151-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32a.453.453 0 0 1-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.662.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.264v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.991.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.972-9.722 2.972-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.025-.527.27-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.385.604zm1.093-1.254c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/></svg>
-          </div>
-          <div class="cert-body">
-            <h3 data-i18n="cert5.title">AWS Cloud Practitioner + Security Fundamentals</h3>
-            <p data-i18n="cert5.desc">CloudGuru · Amazon Web Services</p>
-          </div>
-        </div>
-
-        <div class="cert-card reveal">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
-          </div>
-          <div class="cert-body">
-            <h3 data-i18n="cert6.title">CTF Competition — 3rd Place</h3>
-            <p data-i18n="cert6.desc">University CTF · Competitive Hacking</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= CONTACT ======= -->
-  <section id="contact" class="section">
-    <div class="container">
-      <span class="section-label">07 / contact.init</span>
-      <h2 class="section-title" data-i18n="contact.title">Get In <span class="accent">Touch</span></h2>
-      <div class="contact-wrapper">
-        <p class="contact-intro reveal" data-i18n="contact.intro">
-          I'm open to new opportunities, collaborations, or just a good conversation about
-          cybersecurity. Whether you have a project in mind or want to discuss the latest in
-          threat intelligence — feel free to reach out.
-        </p>
-        <div class="contact-links reveal">
-          <a href="mailto:ayoub.02.abad@gmail.com" class="contact-link">
-            <span class="contact-link-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </span>
-            <div>
-              <span class="cl-label" data-i18n="contact.email.label">Email</span>
-              <span class="cl-value">ayoub.02.abad@gmail.com</span>
-            </div>
-            <span class="cl-arrow">&#8594;</span>
-          </a>
-          <a href="https://linkedin.com/in/abaa-youb" target="_blank" rel="noopener" class="contact-link">
-            <span class="contact-link-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </span>
-            <div>
-              <span class="cl-label">LinkedIn</span>
-              <span class="cl-value">linkedin.com/in/abaa-youb</span>
-            </div>
-            <span class="cl-arrow">&#8594;</span>
-          </a>
-          <a href="https://tryhackme.com/p/FlowHero" target="_blank" rel="noopener" class="contact-link">
-            <span class="contact-link-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </span>
-            <div>
-              <span class="cl-label">TryHackMe</span>
-              <span class="cl-value" data-i18n="contact.thm.value">Top 1% Rank</span>
-            </div>
-            <span class="cl-arrow">&#8594;</span>
-          </a>
-        </div>
-        <div class="contact-cta reveal">
-          <a href="mailto:ayoub.02.abad@gmail.com" class="btn-primary btn-lg" data-i18n="contact.cta">
-            Send a Message
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= FOOTER ======= -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">ayoub<span class="accent">_</span></span>
-        <span class="footer-copy" data-i18n="footer.copy">&copy; 2025 ABAD Ayoub &middot; Cybersecurity Engineer</span>
-        <span class="footer-credit" data-i18n="footer.credit">Built with <span class="accent">&#10084;</span> &amp; 0s and 1s</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="./assets/js/script.js"></script>
-</body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

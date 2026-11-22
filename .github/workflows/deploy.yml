@@ -1,0 +1,52 @@
+# Builds the Vite site and publishes dist/ to GitHub Pages.
+#
+# One-time setup, before the first push of this workflow:
+#   Repository → Settings → Pages → Build and deployment → Source: "GitHub Actions"
+# While Pages is still set to "Deploy from a branch" it keeps serving the repo
+# files as-is — and the raw index.html now points at /src/main.tsx, which only
+# exists after a build, so the live site would break.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a newer push waits rather than cancelling one
+# that is already publishing.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Typechecks first (tsc -b), so a type error fails the deploy instead of
+      # shipping.
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
